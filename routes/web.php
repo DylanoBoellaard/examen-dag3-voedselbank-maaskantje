@@ -14,4 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', VoorraadController::class, 'homepage');
+Route::get('/', [VoorraadController::class, 'homepage']);
+
+Route::get('/overzicht', [VoorraadController::class, 'Overzicht_Voorraad'])->name('overzicht');

@@ -10,4 +10,9 @@ class VoorraadController extends Controller
     {
         return view('homepage');
     }
+
+    public function Overzicht_Voorraad()
+    {
+        return view('voorraad.overzicht');
+    }
 }
