@@ -114,6 +114,6 @@ class AllergieController extends Controller
         );
 
         // Return the user to the wijzig allergie page with a success message
-        return redirect()->back()->with('success', 'Allergie updated successfully.');
+        return redirect()->back()->with('success', 'De wijziging is doorgevoerd');
     }
 }

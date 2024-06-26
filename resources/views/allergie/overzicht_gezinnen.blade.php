@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Overzicht gezinnen</title>
-    @vite(['resources/scss/allergie/index.scss', 'resources/scss/allergie/global.scss'])
+    @vite(['resources/scss/allergie/global.scss'])
 </head>
+
 <body>
     <div class="container">
-        <h1 id="title">Overzicht gezinnen met allergieën</h1>
-
         <form action="" method="POST">
             @csrf
-
-            <!-- Allergie filter dropdown -->
-            <select name="allergie" id="allergie">
-                <option value="">Selecteer allergie</option>
-                @foreach($allergieList as $allergie)
-                <option value="{{ $allergie->id }}" {{ old('allergie', $selectedAllergieId) == $allergie->id ? 'selected' : '' }}>{{ $allergie->naam }}</option>
-                @endforeach
-            </select>
-            <input type="submit" value="Toon Gezinnen">
+            <div class="flex-row">
+                <h1 id="title">Overzicht gezinnen met allergieën</h1>
+                <!-- Allergie filter dropdown -->
+                <select name="allergie" id="allergie">
+                    <option value="">Selecteer allergie</option>
+                    @foreach($allergieList as $allergie)
+                    <option value="{{ $allergie->id }}" {{ old('allergie', $selectedAllergieId) == $allergie->id ? 'selected' : '' }}>{{ $allergie->naam }}</option>
+                    @endforeach
+                </select>
+                <input type="submit" value="Toon Gezinnen">
+            </div>
 
             <!-- Displays the success message, if there is any -->
             @if(Session::has('success'))
@@ -63,12 +65,17 @@
                     </tr>
                     @empty <!-- If $gezinList is empty... -->
                     <tr>
-                        <td colspan="7">Er zijn geen gezinnen bekent die de geselecteerde allergie hebben</td>
+                        <td colspan="7" id="no-allergy">Er zijn geen gezinnen bekent die de geselecteerde allergie hebben</td>
                     </tr>
                     @endforelse
                 </tbody>
             </table>
         </form>
+        <div class="flex-row">
+            <a href="{{ url()->previous() }}" class="nav-button">Terug</a>
+            <a href="{{ route('home') }}" class="nav-button">Home</a>
+        </div>
     </div>
 </body>
+
 </html>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
-    @vite(['resources/scss/allergie/index.scss', 'resources/scss/allergie/global.scss'])
+    @vite(['resources/scss/allergie/global.scss'])
 </head>
 
 <body>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wijzig allergie</title>
-    @vite(['resources/scss/allergie/index.scss', 'resources/scss/allergie/global.scss'])
+    @vite(['resources/scss/allergie/global.scss'])
 </head>
+
 <body>
     <div class="container">
         <h1>Wijzig allergie</h1>
@@ -19,7 +21,7 @@
         @endif
 
         <!-- Form to display all allergies from the database, and automatically selects the one the user has -->
-        <form action="{{ route('gezin.update_allergie', $persoon->id) }}" method="POST">
+        <form action="{{ route('gezin.update_allergie', $persoon->id) }}" method="POST" id="wijzigen-form">
             @csrf
             <select name="allergie_id"> <!-- Dropdown list that displays every allergy and automatically selects the one the user has (or defaults to the topmost allergy) -->
                 @foreach($allergieList as $allergie)
@@ -28,16 +30,26 @@
                 </option>
                 @endforeach
             </select>
-            <button type="submit">Wijzig Allergie</button>
+
+            <!-- Displays the anafylactische shock message if it is filled -->
+            @if(!$anafylactischMessage == null)
+            <div class="alert alert-error" id="anafylactischMessage">
+                <p>{{$anafylactischMessage}}</p>
+            </div>
+            @endif
+
+            
+
+            <div class="flex-row">
+                <button type="submit" id="wijzig-submit-button">Wijzig Allergie</button>
+                <a href="{{ route('home') }}" class="nav-button">Home</a>
+                <a href="{{ route('allergie.overzicht_gezinsallergieen', $persoon->gezinId) }}" class="nav-button">Terug</a>
+            </div>
         </form>
 
-        <!-- Displays the anafylactische shock message if it is filled -->
-        <div class="alert alert-error">
-            <p>{{$anafylactischMessage}}</p>
-        </div>
 
-        <a href="{{ route('home') }}">Home</a>
-        <a href="{{ route('allergie.overzicht_gezinsallergieen', $persoon->gezinId) }}">Terug</a>
+
+
     </div>
     <script>
         // Script to redirect to overzicht_gezinsallergieen page after 3 seconds:
@@ -67,4 +79,5 @@
         });
     </script>
 </body>
+
 </html>

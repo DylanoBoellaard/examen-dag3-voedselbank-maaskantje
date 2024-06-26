@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Overzicht gezinsallergieën</title>
-    @vite(['resources/scss/allergie/index.scss', 'resources/scss/allergie/global.scss'])
+    @vite(['resources/scss/allergie/global.scss'])
 </head>
+
 <body>
     <div class="container">
         <h1 id="title">Allergieën in het gezin</h1>
@@ -70,9 +72,9 @@
                         @if($persoon->allergiePerPersoon->isEmpty()) <!-- If person has no allergy, display message -->
                         Geen allergie
                         @else <!-- If person has one or more allergies, display them all -->
-                            @foreach($persoon->allergiePerPersoon as $allergiePerPersoon)
-                                {{ $allergiePerPersoon->allergie->naam }} <br>
-                            @endforeach
+                        @foreach($persoon->allergiePerPersoon as $allergiePerPersoon)
+                        {{ $allergiePerPersoon->allergie->naam }} <br>
+                        @endforeach
                         @endif
                     </td>
                     <td>
@@ -88,6 +90,11 @@
                 @endforelse
             </tbody>
         </table>
+        <div class="flex-row">
+            <a href="{{ url()->previous() }}" class="nav-button">Terug</a>
+            <a href="{{ route('home') }}" class="nav-button">Home</a>
+        </div>
     </div>
 </body>
+
 </html>
