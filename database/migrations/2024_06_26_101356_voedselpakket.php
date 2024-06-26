@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('gezinId');
             $table->integer('pakketnummer');
             $table->date('datumsamenstelling');
-            $table->date('datumuitgifte');
+            $table->date('datumuitgifte')->nullable();
             $table->string('status')->max(20);
             $table->rememberToken();
             $table->timestamps();

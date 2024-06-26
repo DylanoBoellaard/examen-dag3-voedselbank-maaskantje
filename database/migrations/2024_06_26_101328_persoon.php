@@ -14,12 +14,12 @@ return new class extends Migration
         //  creates the table
         Schema::create('persoon', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('gezin_id');
+            $table->foreignId('gezin_id')->nullable();
             $table->string('voornaam')->max(50);
-            $table->string('tussenvoegsel')->max(20);
+            $table->string('tussenvoegsel')->max(20)->nullable();
             $table->string('achternaam')->max(50);
             $table->date('geboortedatum')->max(20);
-            $table->integer('typepersoon')->max(20);
+            $table->string('typepersoon')->max(20);
             $table->boolean('isvertegenwoordiger')->max(2)->default(0);
             $table->rememberToken();
             $table->timestamps();
