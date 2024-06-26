@@ -16,4 +16,4 @@ use App\Http\Controllers\Feature01;
 
 Route::get('/voedselbank-maaskanje.org', [Feature01::class, 'Home']);
 
-Route::get('/klanten/overzicht', [Feature01::class, 'Overzicht']);
+Route::get('/klanten/overzicht', [Feature01::class, 'Overzicht'])->name('klanten.overzicht');

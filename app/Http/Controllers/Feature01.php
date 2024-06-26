@@ -16,9 +16,9 @@ class Feature01 extends Controller
         return view('klanten/homepage');
     }
 
-    public function Overzicht()
+    public function Overzicht(Request $request)
     {
-        $data = DB::table('gezin')
+        $query = DB::table('gezin')
             ->join('persoon', 'gezin.id', '=', 'persoon.gezinId')
             ->join('contact_Per_Gezin', 'gezin.id', '=', 'contact_Per_Gezin.gezinId')
             ->join('contact', 'contact_Per_Gezin.contactId', '=', 'contact.id')
@@ -29,8 +29,13 @@ class Feature01 extends Controller
                 'contact.mobiel',
                 DB::raw("CONCAT(contact.straat, ' ', IFNULL(contact.toevoeging, ''), ' ', contact.postcode, ' ', contact.huisnummer) as adres"),
                 'contact.woonplaats'
-            )
-            ->get();
+            );
+
+        if ($request->has('postcode') && $request->postcode != '') {
+            $query->where('contact.postcode', $request->postcode);
+        }
+
+        $data = $query->get();
 
         return view('klanten/overzicht', ['klant' => $data]);
     }
