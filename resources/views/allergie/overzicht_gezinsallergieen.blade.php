@@ -63,7 +63,7 @@
                     </tr>
                     @empty <!-- If $gezinList is empty... -->
                     <tr>
-                        <td colspan="7">Er zijn geen gezinnen gevonden</td>
+                        <td colspan="7">Er zijn geen gezinnen bekent die de geselecteerde allergie hebben</td>
                     </tr>
                     @endforelse
                 </tbody>
