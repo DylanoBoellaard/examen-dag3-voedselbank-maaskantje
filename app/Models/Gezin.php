@@ -22,4 +22,14 @@ class Gezin extends Model
         'aantalbabys',
         'totaalpersonen',
     ];
+
+    public function personen()
+    {
+        return $this->belongsTo(Persoon::class);
+    }
+
+    public function eetwenspergezin()
+    {
+        return $this->belongsTo(Eetwenspergezin::class);
+    }
 }

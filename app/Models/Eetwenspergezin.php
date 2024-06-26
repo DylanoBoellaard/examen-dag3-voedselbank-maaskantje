@@ -17,4 +17,14 @@ class Eetwenspergezin extends Model
         'gezinId',
         'eetwensId',
     ];
+
+    public function gezin()
+    {
+        return $this->belongsTo(Gezin::class, 'gezin');
+    }
+
+    public function eetwens()
+    {
+        return $this->belongsTo(Eetwens::class, 'eetwensId', 'id');
+    }
 }
