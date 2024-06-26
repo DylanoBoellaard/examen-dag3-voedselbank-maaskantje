@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wijzig allergie</title>
     @vite(['resources/scss/allergie/index.scss', 'resources/scss/allergie/global.scss'])
 </head>
+
 <body>
     <div class="container">
         <h1>Wijzig allergie</h1>
@@ -29,6 +31,9 @@
             </select>
             <button type="submit">Wijzig Allergie</button>
         </form>
+
+        <!-- Displays the anafylactische shock message if it is filled -->
+        <p>{{$anafylactischMessage}}</p>
 
         <a href="{{ route('home') }}">Home</a>
         <a href="{{ route('allergie.overzicht_gezinsallergieen', $persoon->gezinId) }}">Terug</a>
@@ -61,4 +66,5 @@
         });
     </script>
 </body>
+
 </html>

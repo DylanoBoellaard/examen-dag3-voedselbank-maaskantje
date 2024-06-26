@@ -79,9 +79,20 @@ class AllergieController extends Controller
         $persoon = Persoon::findOrFail($persoonId);
         $allergieList = Allergie::all();
 
+        // Check if the person has an allergy with anafylactischRisico set to 'Hoog'
+        $hasHighRiskAllergy = $persoon->allergiePerPersoon->contains(function ($allergiePerPersoon) {
+            return $allergiePerPersoon->allergie->anafylactischRisico === 'Hoog';
+        });
+
+        /* If person has an allergy with the anafylactischRisico field in allergie table set to 'Hoog', fill $errorMessage with a message.
+            If person does not have an allergy with the anafylactischRisico field in allergie table set to 'Hoog', leave the variable empty
+        */
+        $anafylactischMessage = $hasHighRiskAllergy ? 'Voor het wijzigen van deze allergie wordt geadviseerd eerst een arts te raadplegen vanwege een hoog risico op een anafylactische shock' : null;
+
         return view('allergie.wijzigen_allergie', [
             'persoon' => $persoon,
-            'allergieList' => $allergieList
+            'allergieList' => $allergieList,
+            'anafylactischMessage' => $anafylactischMessage
         ]);
     }
 
