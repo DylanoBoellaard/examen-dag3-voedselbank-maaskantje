@@ -13,6 +13,12 @@
 </script>
 @endif
 
+@if(session()->has('error'))
+<h3 class="succes-text">
+    {{session('error')}}
+</h3>
+@endif
+
 <form action="{{route('update', [$data[0]->id])}}" method="post">
     @csrf
     @method('put')
@@ -38,6 +44,15 @@
     <div>
         <label for="Ontvangstdatum">Ontvangstdatum</label>
         <input type="text" name="Ontvangstdatum" value="{{date('d-m-Y', strtotime($data[0]->Ontvangstdatum))}}">
+    </div>
+    <div>
+        <label for="AantalUitgeleleverdeProducten">Aantal uitgeleverde producten</label>
+        <input type="text" name="AantalUitgeleleverdeProducten">
+        @if(session()->has('error_message'))
+        <p>
+            {{session('error_message')}}
+        </p>
+        @endif
     </div>
     <div>
         <label for="Uitleveringsdatum">Uitleveringsdatum</label>

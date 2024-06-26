@@ -26,6 +26,10 @@
     <input type="text" name="Ontvangstdatum" value="{{date('d-m-Y', strtotime($data[0]->Ontvangstdatum))}}">
 </div>
 <div>
+    <label for="AantalUitgeleleverdeProducten">Aantal uitgeleverde producten</label>
+    <input type="text" name="AantalUitgeleleverdeProducten">
+</div>
+<div>
     <label for="Uitleveringsdatum">Uitleveringsdatum</label>
     <input type="date" name="Uitleveringsdatum" value="{{date('d-m-Y', strtotime($data[0]->Uitleveringsdatum))}}">
 </div>

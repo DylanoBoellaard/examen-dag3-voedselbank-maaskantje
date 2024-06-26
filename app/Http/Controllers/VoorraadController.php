@@ -59,26 +59,30 @@ class VoorraadController extends Controller
 
     public function update(Request $request, $voorraadId)
     {
-        $product = [
-            'Naam' => $request->Naam,
-            'Houdbaarheidsdatum' => date('Y-m-d', strtotime($request->Houdbaarheidsdatum)),
-            'Barcode' => $request->Barcode
-        ];
+        if ($request->AantalUitgeleleverdeProducten > $request->Aantal) {
+            return redirect(route('edit', [$voorraadId]))->with('error', 'De productgegevens kunnen niet worden gewijzigd')->with('error_message', 'Er worden meer producten uitgeleverd dan er in voorraad zijn');
+        } else {
+            $product = [
+                'Naam' => $request->Naam,
+                'Houdbaarheidsdatum' => date('Y-m-d', strtotime($request->Houdbaarheidsdatum)),
+                'Barcode' => $request->Barcode
+            ];
 
-        $magazijn = [
-            'Ontvangstdatum' => date('Y-m-d', strtotime($request->Ontvangstdatum)),
-            'Uitleveringsdatum' => date('Y-m-d', strtotime($request->Uitleveringsdatum)),
-            'Aantal' => $request->Aantal
-        ];
+            $magazijn = [
+                'Ontvangstdatum' => date('Y-m-d', strtotime($request->Ontvangstdatum)),
+                'Uitleveringsdatum' => date('Y-m-d', strtotime($request->Uitleveringsdatum)),
+                'Aantal' => $request->Aantal
+            ];
 
-        $productpermagazijn = [
-            'Locatie' => $request->Locatie
-        ];
+            $productpermagazijn = [
+                'Locatie' => $request->Locatie
+            ];
 
-        DB::table('Magazijn')->where('id', $voorraadId)->update($magazijn);
-        DB::table('Product')->where('id', $voorraadId)->update($product);
-        DB::table('ProductPerMagazijn')->where('id', $voorraadId)->update($productpermagazijn);
+            DB::table('Magazijn')->where('id', $voorraadId)->update($magazijn);
+            DB::table('Product')->where('id', $voorraadId)->update($product);
+            DB::table('ProductPerMagazijn')->where('id', $voorraadId)->update($productpermagazijn);
 
-        return redirect(route('product_details', [$voorraadId]))->with('success', 'De productgegevens zijn gewijzigd');
+            return redirect(route('edit', [$voorraadId]))->with('succes', 'De productgegevens zijn gewijzigd');
+        }
     }
 }
