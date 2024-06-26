@@ -53,4 +53,8 @@ class leverancierController extends Controller
             'selectedType' => $leveranciertype
         ]);
     }
+    public function overzicht_producten()
+    {
+        return view('leverancier/overzichtProduct');
+    }
 }

@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/leverancier', [leverancierController::class, 'overzicht_leverancier'])->name('leverancier.overzicht_leverancier');
+
+Route::get('/leverancier/overzichtProduct', [leverancierController::class, 'overzicht_producten'])->name('leverancier.overzicht_producten');

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    @vite(['resources/css/leverancier/leverancierOverzicht.css'])
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>overzicht</title>
 </head>
 <body>
     <h1>Overzicht Leveranciers</h1>
@@ -25,12 +26,13 @@
             <td>{{ $leverancier->mobiel }}</td>
             <td>{{ $leverancier->leveranciernummer }}</td>
             <td>{{ $leverancier->leveranciertype }}</td>
-
-            @endforeach
-            <!--checks if leverancier is empty of not. if so send error message-->
-            @if($leveranciers->isEmpty())
+            <td><a href="{{ route('leverancier.overzicht_producten') }}">detail</a></td>
+        </tr>
+        @endforeach
+        <!--checks if leverancier is empty of not. if so send error message-->
+        @if($leveranciers->isEmpty())
         <tr>
-            <td colspan="6">Er zijn geen leveranciers bekent van het geselecteerde leveranciertype</td>
+            <td id="error" colspan="6">Er zijn geen leveranciers bekent van het geselecteerde leveranciertype</td>
         </tr>
         @endif
         <!-- Form to filter leveranciers by type -->
