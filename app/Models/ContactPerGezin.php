@@ -12,7 +12,7 @@ class ContactPerGezin extends Model
 {
     use HasFactory;
 
-    protected $table = 'contactPerGezin';
+    protected $table = 'contact_Per_Gezin';
 
     protected $fillable = [
         'gezinId',

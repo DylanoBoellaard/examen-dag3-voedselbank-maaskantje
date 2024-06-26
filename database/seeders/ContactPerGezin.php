@@ -22,6 +22,6 @@ class ContactPerGezin extends Seeder
             ['gezinId' => 6, 'contactId' => 6],
         ];
 
-        DB::table('contactPerGezin')->insert($contactPerGezin);
+        DB::table('contact_Per_Gezin')->insert($contactPerGezin);
     }
 }
