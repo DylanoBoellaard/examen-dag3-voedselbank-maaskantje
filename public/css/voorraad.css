@@ -1,0 +1,9 @@
+/* gives the 7e column of the table data a text center so the image is in the middle instead of to the left */
+td:nth-child(7) {
+    text-align: center;
+}
+
+/* makes the images smaller */
+img.small-img {
+    width: 10%;
+}
