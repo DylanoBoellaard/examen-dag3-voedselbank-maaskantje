@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('naam', 100);
             $table->string('code', 4)->unique();
             $table->string('omschrijving', 50);
-            $table->integer('aantalVolwassenen');
-            $table->integer('aantalKinderen');
-            $table->integer('aantalBabys');
+            $table->integer('aantalVolwassenen')->nullable();
+            $table->integer('aantalKinderen')->nullable();
+            $table->integer('aantalBabys')->nullable();
             $table->integer('totaalAantalPersonen');
             $table->boolean('isActief')->default(true);
             $table->string('opmerkingen', 250)->nullable();
