@@ -22,7 +22,9 @@ class Feature01 extends Controller
             ->join('persoon', 'gezin.id', '=', 'persoon.gezinId')
             ->join('contact_Per_Gezin', 'gezin.id', '=', 'contact_Per_Gezin.gezinId')
             ->join('contact', 'contact_Per_Gezin.contactId', '=', 'contact.id')
+            ->where('persoon.isvertegenwoordiger', true)
             ->select(
+                'persoon.id as persoonId',
                 'gezin.naam as gezinNaam',
                 DB::raw("CONCAT(persoon.voornaam, ' ', IFNULL(persoon.tussenvoegsel, ''), ' ', persoon.achternaam) as vertegenwoordiger"),
                 'contact.email',

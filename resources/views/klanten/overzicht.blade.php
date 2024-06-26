@@ -87,6 +87,7 @@
             <td>{{$klanten->mobiel}}</td>
             <td>{{$klanten->adres}}</td>
             <td>{{$klanten->woonplaats}}</td>
+            <td><a href="{{ route('klantdetails', ['persoonId' => $klanten->persoonId]) }}">Klant Details</a></td>
         </tr>
         @endforeach
     </table>
