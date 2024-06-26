@@ -15,7 +15,7 @@
 
 <body class="antialiased">
     <h1>Homepage voedselbank maaskantje</h1>
-    <a href="overzicht">Overzicht voedselpakketten</a>
+    <a href="/overzicht">Overzicht voedselpakketten</a>
 </body>
 
 </html>

@@ -15,7 +15,6 @@ class VoedselpakketOverzichtController extends Controller
     {
         $gezinnen = DB::select("SELECT * FROM gezin
         JOIN eetwenspergezin ON gezin.id = eetwenspergezin.gezinId
-        JOIN eetwens ON eetwenspergezin.eetwensId = eetwens.id
         JOIN persoon ON gezin.id = persoon.gezin_id
         WHERE persoon.isvertegenwoordiger = 1");
 
@@ -23,17 +22,25 @@ class VoedselpakketOverzichtController extends Controller
         $result = DB::select("SELECT id, naam FROM eetwens WHERE id");
         $vergelijking = DB::select("SELECT * FROM eetwenspergezin");
 
-        
-
         if ($selected_eetwens) {
             $vergelijking = DB::select("SELECT eetwensId FROM eetwenspergezin WHERE eetwensId = $selected_eetwens");
         }
-        
-       
-
 
         return view('voedselpakketten.overzicht', [
-            'gezinnen' => $gezinnen, 'result' => $result, 'vergelijking' => $vergelijking
+            'gezinnen' => $gezinnen, 'result' => $result
+        ]);
+    }
+
+    public function show($id)
+    {
+        $gezin = Gezin::find($id);
+
+        $pakketten = DB::select("SELECT * FROM voedselpakket
+                                    JOIN productpervoedselpakket ON voedselpakket.id = productpervoedselpakket.voedselpakketId
+                                    WHERE voedselpakket.gezinId = $id");
+
+        return view('voedselpakketten.overzichtvoedsel', [
+            'gezin' => $gezin, 'pakketten' => $pakketten
         ]);
     }
 }

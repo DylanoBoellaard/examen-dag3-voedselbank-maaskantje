@@ -1,0 +1,104 @@
+// styling for the leverancier page
+main {
+    h3 {
+        color: #17c900;
+        border-bottom: #17c900;
+    }
+    // styling for the go back button 
+    .back {
+        border: 1px solid #ffffff;
+        display: flex;
+        justify-content: center;
+        width: 9%;
+        background-color: #ffffff;
+
+        a {
+            text-decoration: none;
+            color: black;
+            
+        }
+    }
+
+    // styling for when something is succesful
+    .succes {
+        color: green;
+    }
+    // styling for when something is an error
+    .error {
+        color: red;
+    }
+    form {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        background-color: #ffffff;
+        padding: 30px 0;
+        select {
+            padding: 12px 20px;
+            margin: 8px 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            color: #ffff;
+            background-color: #8f8f8f;
+            border: 1px solid #8f8f8f;
+            border-radius: 10px;
+            padding: 20px 0;
+            width: 13rem;
+            box-shadow: 5px 5px 5px #8f8f8f;
+            font-size: 20px;
+        }
+    }
+
+    // styling for the layout of the page
+    .layout {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        }
+
+        // table styling 
+        table {
+            display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 80%;
+                background-color: #ffffff;
+                padding: 10px 0;
+                border-collapse: collapse;
+    
+            tr {
+                th {
+                    border: 3px solid black;
+                    padding: 10px;
+                }
+                
+                td {
+                    border: 3px solid black;
+                    padding: 10px;
+                    svg {
+                        width: 30px;
+                    }
+
+                    a {
+                        text-decoration: none;
+                        color: black;
+                       font-size: 40px;
+                    }
+                    input {
+                        padding: 12px 20px;
+                        margin: 8px 0;
+                        border: none;
+                        box-sizing: border-box;
+                        background-color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
