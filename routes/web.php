@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AllergieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+
+// Allergieën
+// Gezinsallergieën overzicht
+Route::get('/voorraad/overzicht', [AllergieController::class, 'overzicht_gezinsallergieen'])->name('allergie.overzicht_gezinsallergieen');
