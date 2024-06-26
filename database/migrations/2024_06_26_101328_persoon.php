@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //  creates the table
         Schema::create('persoon', function (Blueprint $table) {
             $table->id();
             $table->foreignId('gezin_id');
@@ -23,7 +24,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-
+        // makes the foreign keys
         Schema::table('persoon', function (Blueprint $table) {
             $table->foreign('gezin_id')->references('id')->on('gezin');
         });
@@ -34,6 +35,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        // drops the table
         Schema::dropIfExists('persoon');
     }
 };

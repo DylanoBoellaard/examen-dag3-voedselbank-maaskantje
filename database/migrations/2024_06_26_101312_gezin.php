@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // creates the table
         Schema::create('gezin', function (Blueprint $table) {
             $table->id();
             $table->string('naam')->max(100);
@@ -30,6 +31,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        // drops the table
         Schema::dropIfExists('gezin');
     }
 };
