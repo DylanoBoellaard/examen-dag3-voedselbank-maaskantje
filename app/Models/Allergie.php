@@ -9,8 +9,10 @@ class Allergie extends Model
 {
     use HasFactory;
 
+    // Tells Laravel / model to use this name to find the correct table
     protected $table = 'allergie';
 
+    // Allows these values to be used for creating, editing or deleting
     protected $fillable = [
         'naam',
         'omschrijving',

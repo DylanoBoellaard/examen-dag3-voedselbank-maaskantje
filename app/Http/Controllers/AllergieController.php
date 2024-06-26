@@ -58,7 +58,7 @@ class AllergieController extends Controller
         ]);
     }
 
-    // Function to display a person's details from the selected family using the $gezinId
+    // Function to display a person's details and allergy details from the selected family using the $gezinId
     public function overzicht_gezinsallergieen($gezinId)
     {
         // Find the first value with the $gezinId
@@ -74,9 +74,13 @@ class AllergieController extends Controller
         ]);
     }
 
+    // Function to allow the editing of an allergie of the selected person
     public function wijzigen_allergie($persoonId)
     {
+        // Find first person with id $personId and retrieve data
         $persoon = Persoon::findOrFail($persoonId);
+
+        // Retrieve all allergie data from database
         $allergieList = Allergie::all();
 
         // Check if the person has an allergy with anafylactischRisico set to 'Hoog'
@@ -89,6 +93,7 @@ class AllergieController extends Controller
         */
         $anafylactischMessage = $hasHighRiskAllergy ? 'Voor het wijzigen van deze allergie wordt geadviseerd eerst een arts te raadplegen vanwege een hoog risico op een anafylactische shock' : null;
 
+        // Return the user to the wijzigen_allergie page with variables
         return view('allergie.wijzigen_allergie', [
             'persoon' => $persoon,
             'allergieList' => $allergieList,
@@ -96,8 +101,10 @@ class AllergieController extends Controller
         ]);
     }
 
+    // Function to update the allergie of the selected person after the submit form request
     public function update_allergie(Request $request, $persoonId)
     {
+        // Retrieve the allergie ID from the form dropdown
         $allergieId = $request->input('allergie_id');
 
         // Update or create the allergiePerPersoon entry
@@ -105,9 +112,6 @@ class AllergieController extends Controller
             ['persoonId' => $persoonId],
             ['allergieId' => $allergieId, 'isActief' => true]
         );
-
-        $persoon = Persoon::findOrFail($persoonId);
-        $gezinId = $persoon->gezinId;
 
         // Return the user to the wijzig allergie page with a success message
         return redirect()->back()->with('success', 'Allergie updated successfully.');

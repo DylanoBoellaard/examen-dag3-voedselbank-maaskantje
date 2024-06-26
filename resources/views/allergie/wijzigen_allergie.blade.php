@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wijzig allergie</title>
     @vite(['resources/scss/allergie/index.scss', 'resources/scss/allergie/global.scss'])
 </head>
-
 <body>
     <div class="container">
         <h1>Wijzig allergie</h1>
 
+        <!-- Display a success message if there is any -->
         @if(Session::has('success'))
         <div class="alert alert-success">
             {{ Session::get('success') }}
@@ -33,7 +32,9 @@
         </form>
 
         <!-- Displays the anafylactische shock message if it is filled -->
-        <p>{{$anafylactischMessage}}</p>
+        <div class="alert alert-error">
+            <p>{{$anafylactischMessage}}</p>
+        </div>
 
         <a href="{{ route('home') }}">Home</a>
         <a href="{{ route('allergie.overzicht_gezinsallergieen', $persoon->gezinId) }}">Terug</a>
@@ -66,5 +67,4 @@
         });
     </script>
 </body>
-
 </html>
