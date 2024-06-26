@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('gezin', function (Blueprint $table) {
             $table->id();
             $table->string('naam', 100);
-            $table->string('code', 4)->unique();
+            $table->string('code', 5)->unique();
             $table->string('omschrijving', 50);
             $table->integer('aantalVolwassenen')->nullable();
             $table->integer('aantalKinderen')->nullable();
