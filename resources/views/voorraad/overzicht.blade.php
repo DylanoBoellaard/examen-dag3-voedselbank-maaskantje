@@ -28,7 +28,7 @@
     </form>
 </div>
 
-<table>
+<table border="1" style="border-collapse: collapse;">
     <thead>
         <!-- table heads for the table columns -->
         <tr>
@@ -52,7 +52,7 @@
             <td>{{$voorraad->Houdbaarheidsdatum}}</td>
             <td>{{$voorraad->MagazijnId}}</td>
             <td>
-                <a href="">
+                <a href="{{route('product_details', [$voorraad->id])}}">
                     <img class="small-img" src="/img/note.png" alt="note.png">
                 </a>
             </td>

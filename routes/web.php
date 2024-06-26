@@ -22,3 +22,9 @@ Route::get('/overzicht', [VoorraadController::class, 'Overzicht_Voorraad'])->nam
 
 // when the user submits a form then they get send to the overzicht page with the data with the user inputs in the query
 Route::post('/overzicht', [VoorraadController::class, 'Overzicht_Voorraad'])->name('overzicht');
+
+Route::get('/product_details/{voorraadId}', [VoorraadController::class, 'product_details'])->name('product_details');
+
+Route::get('/edit/{voorraadId}', [VoorraadController::class, 'edit'])->name('edit');
+
+Route::put('/update/{voorraadId}', [VoorraadController::class, 'update'])->name('update');
