@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('achternaam')->max(50);
             $table->date('geboortedatum')->max(20);
             $table->integer('typepersoon')->max(20);
-            $table->boolean('isvertegenwoordiger')->max(2);
+            $table->boolean('isvertegenwoordiger')->max(2)->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
