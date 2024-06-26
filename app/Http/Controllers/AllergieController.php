@@ -6,6 +6,7 @@ use App\Models\Allergie;
 use App\Models\Gezin;
 use App\Models\Persoon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AllergieController extends Controller
 {
@@ -64,12 +65,40 @@ class AllergieController extends Controller
         $gezin = Gezin::findOrFail($gezinId);
 
         // Retrieve from database all persoon details by using the $gezinId
-        $personen = Persoon::where('gezinId', $gezinId)->get();
+        $personen = Persoon::where('gezinId', $gezinId)->with('allergiePerPersoon.allergie')->get();
 
         // Return the user to the index display page with the 2 variables
         return view('allergie.overzicht_gezinsallergieen', [
             'gezin' => $gezin,
             'personen' => $personen,
         ]);
+    }
+
+    public function wijzigen_allergie($persoonId)
+    {
+        $persoon = Persoon::findOrFail($persoonId);
+        $allergieList = Allergie::all();
+
+        return view('allergie.wijzigen_allergie', [
+            'persoon' => $persoon,
+            'allergieList' => $allergieList
+        ]);
+    }
+
+    public function update_allergie(Request $request, $persoonId)
+    {
+        $allergieId = $request->input('allergie_id');
+
+        // Update or create the allergiePerPersoon entry
+        DB::table('allergiePerPersoon')->updateOrInsert(
+            ['persoonId' => $persoonId],
+            ['allergieId' => $allergieId, 'isActief' => true]
+        );
+
+        $persoon = Persoon::findOrFail($persoonId);
+        $gezinId = $persoon->gezinId;
+
+        // Return the user to the wijzig allergie page with a success message
+        return redirect()->back()->with('success', 'Allergie updated successfully.');
     }
 }

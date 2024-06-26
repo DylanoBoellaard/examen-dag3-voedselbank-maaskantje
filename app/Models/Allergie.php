@@ -20,4 +20,10 @@ class Allergie extends Model
         'created_at',
         'updated_at',
     ];
+
+    // Defines the relationship. One allergy can have many persons
+    public function allergiePerPersoon()
+    {
+        return $this->hasMany(AllergiePerPersoon::class, 'allergieId');
+    }
 }

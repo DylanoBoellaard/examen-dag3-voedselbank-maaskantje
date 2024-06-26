@@ -24,4 +24,10 @@ class Persoon extends Model
         'created_at',
         'updated_at',
     ];
+
+    // Defines the relationship. One person can have many allergies
+    public function allergiePerPersoon()
+    {
+        return $this->hasMany(AllergiePerPersoon::class, 'persoonId');
+    }
 }

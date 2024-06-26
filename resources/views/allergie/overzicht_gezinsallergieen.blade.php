@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magazijn overzicht</title>
+    <title>Overzicht gezinsallergieën</title>
     @vite(['resources/scss/allergie/index.scss', 'resources/scss/allergie/global.scss'])
 </head>
-
 <body>
     <div class="container">
         <h1 id="title">Allergieën in het gezin</h1>
@@ -68,7 +66,17 @@
                     </td>
                     <td>{{ $persoon->isVertegenwoordiger ? 'Vertegenwoordiger' : 'Lid' }}</td> <!-- Checks a boolean whether someone is a representative or not -->
                     <td>
-                        <a href="{{route('home', [$persoon -> id])}}">
+                        <!-- Check if person has an allergy -->
+                        @if($persoon->allergiePerPersoon->isEmpty()) <!-- If person has no allergy, display message -->
+                        Geen allergie
+                        @else <!-- If person has one or more allergies, display them all -->
+                            @foreach($persoon->allergiePerPersoon as $allergiePerPersoon)
+                                {{ $allergiePerPersoon->allergie->naam }} <br>
+                            @endforeach
+                        @endif
+                    </td>
+                    <td>
+                        <a href="{{route('allergie.wijzigen_allergie', [$persoon -> id])}}">
                             <img class="small-img" src="/img/Edit-icon.png" alt="Book-icon.png">
                         </a>
                     </td>
@@ -82,5 +90,4 @@
         </table>
     </div>
 </body>
-
 </html>

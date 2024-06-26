@@ -19,4 +19,10 @@ class AllergiePerPersoon extends Model
         'created_at',
         'updated_at',
     ];
+
+    // Defines the relationship. One allergiePerPersoon belongs to one allergy
+    public function allergie()
+    {
+        return $this->belongsTo(Allergie::class, 'allergieId');
+    }
 }

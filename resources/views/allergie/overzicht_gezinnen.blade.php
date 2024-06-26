@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magazijn overzicht</title>
+    <title>Overzicht gezinnen</title>
     @vite(['resources/scss/allergie/index.scss', 'resources/scss/allergie/global.scss'])
 </head>
 <body>
