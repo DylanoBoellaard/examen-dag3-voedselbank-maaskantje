@@ -20,7 +20,10 @@ Route::get('/', function () {
 
 // Allergieën
 // Gezinsallergieën overzicht
-Route::get('/voorraad/overzicht', [AllergieController::class, 'overzicht_gezinsallergieen'])->name('allergie.overzicht_gezinsallergieen');
+Route::get('/voorraad/overzicht', [AllergieController::class, 'overzicht_gezinnen'])->name('allergie.overzicht_gezinnen');
 
 // Route to handle the allergie form filter request for the families
-Route::post('/voorraad/overzicht', [AllergieController::class, 'overzicht_gezinsallergieen'])->name('allergie.filter_gezinsallergieen');
+Route::post('/voorraad/overzicht', [AllergieController::class, 'overzicht_gezinnen'])->name('allergie.filter_gezinnen');
+
+// Allergieën per persoon
+Route::get('/voorraad/overzicht/{gezinId}', [AllergieController::class, 'overzicht_gezinsallergieen'])->name('allergie.overzicht_gezinsallergieen');

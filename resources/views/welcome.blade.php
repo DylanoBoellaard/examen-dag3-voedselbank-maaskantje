@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h1>Homepage voedselbank maaskantje</h1>
-        <a href="{{route('allergie.overzicht_gezinsallergieen')}}">Overzicht gezinsallergieën</a>
+        <a href="{{route('allergie.overzicht_gezinnen')}}">Overzicht gezinsallergieën</a>
     </div>
 </body>
 
