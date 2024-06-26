@@ -11,6 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('gezin', function (Blueprint $table) {
+            $table->id();
+            $table->string('naam');
+            $table->string('code');
+            $table->string('omschrijving');
+            $table->integer('aantalVolwassenen');
+            $table->integer('aantalKinderen');
+            $table->integer('aantalBabys');
+            $table->integer('totaalAantalPersonen');
+            $table->timestamps();
+        });
     }
 
     /**

@@ -11,6 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('persoon', function (Blueprint $table) {
+            $table->id();
+            $table->integer('gezinId')->constrained()->references('id')->on('gezin')->nullable();
+            $table->string('voornaam');
+            $table->string('tussenvoegsel')->nullable();
+            $table->string('achternaam');
+            $table->date('geboortedatum');
+            $table->string('typePersoon');
+            $table->boolean('isVertegenwoordiger');
+            $table->timestamps();
+        });
     }
 
     /**

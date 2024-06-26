@@ -11,7 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('contact', function (Blueprint $table) {
+            $table->id();
+            $table->string('straat');
+            $table->integer('huisnummer');
+            $table->string('toevoeging')->nullable();
+            $table->string('postcode');
+            $table->string('woonplaats');
+            $table->string('email');
+            $table->string('mobiel');
+            $table->timestamps();
+        });
     }
 
     /**
