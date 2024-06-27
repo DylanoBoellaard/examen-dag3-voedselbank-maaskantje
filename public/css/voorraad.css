@@ -11,9 +11,12 @@
     --gray: rgba(178, 178, 178, 0.5);
     --dark-gray: rgb(120, 120, 120);
     --green: rgb(10, 149, 0);
+    --light-green: rgba(56, 189, 47,0.7);
     --blue: rgb(0, 6, 189);
     --light-blue: rgb(0, 7, 214);
     --light-yellow: rgb(255, 223, 79);
+    --red: rgb(255, 0, 0);
+    --light-red: rgba(255, 0, 0,0.7);
 }
 
 /* gives the 7e column of the table data a text center so the image is in the middle instead of to the left */
@@ -72,7 +75,7 @@ section.links-overzicht {
 }
 
 /* gave the a element some space inside and a round border with a color and some background coloralso it removes the underline and gave it some space at the bottom */
-section.links>span>a, section.links-overzicht>a {
+section.links>span>a, section.links>a, section.links-overzicht>a {
     padding: 1rem;
     border-radius: 0.5rem;
     background-color: var(--light-blue);
@@ -151,4 +154,80 @@ section.links {
     margin-top: 2rem;
     margin-left: 1rem;
     width: 33.5%;
+}
+
+form.edit-form {
+    display: flex;
+    flex-direction: row;
+}
+
+form.edit-form>div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    margin-right: 6rem;
+}
+
+form.edit-form>div>label {
+    margin-bottom: 1.1rem;
+    margin-left: 1rem;
+}
+
+form.edit-form>div>input, form.edit-form>div>select {
+    padding: 0.25rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--gray);
+}
+
+section.links-edit {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+section.links-edit>a, input.submit-edit {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--light-blue);
+    color: var(--white);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+}
+
+input.submit-edit {
+    border: none;
+    height: 13%;
+    margin-top: 1rem;
+}
+
+li.input-error-message>span {
+    color: var(--red);
+}
+
+li.input-error-message {
+    margin-bottom: 0.5rem;
+}
+
+section.succes-text>h3 {
+    background-color: var(--light-green);
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    width: 28%;
+}
+
+section.error-text>h3 {
+    background-color: var(--light-red);
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    width: 44%;
+}
+
+.active {
+    margin-top: 1rem;
 }
