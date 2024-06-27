@@ -36,24 +36,26 @@
                 <th>Aantal producten</th>
                 <th>Wijzig Status</th>
             </tr>
-            @foreach($voedselpakket as $voedselpakket)
-            @foreach($voedselpakket->voedselpakketpereenheid as $eenheid)
+            @foreach($voedselpakket as $pakket)
             <tr>
-                <td>{{ $voedselpakket->pakketnummer }}</td>
-                <td>{{ $voedselpakket->datumsamenstelling }}</td>
-                @if($voedselpakket->datumuitgifte == null)
+                <td>{{ $pakket->pakketnummer }}</td>
+                <td>{{ $pakket->datumsamenstelling }}</td>
+                @if($pakket->datumuitgifte == null)
                 <td>Geen datum</td>
                 @else
-                <td>{{ $voedselpakket->datumuitgifte }}</td>
+                <td>{{ $pakket->datumuitgifte }}</td>
                 @endif
-                <td>{{ $voedselpakket->status }}</td>
-                <td>{{ $eenheid->aantalproducteneenheden }}</td>
-                <td><a href="">Wijzig</a></td>
+                <td>{{ $pakket->status }}</td>
+                <td>{{ $pakket->voedselpakketpereenheid->sum('aantalproducteneenheden') }}</td>
+                <td><a href="/gezin/{{ $pakket->id }}/edit">Wijzig</a></td>
             </tr>
             @endforeach
-            @endforeach
-
         </table>
+
+        <div>
+            <a href="/overzicht"><button>terug</button></a>
+            <a href="/"><button>home</button></a>
+        </div>
     </main>
 </body>
 

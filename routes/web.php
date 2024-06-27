@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/gezin/{id}', [VoedselpakketOverzichtController::class, 'show']);
+
 Route::get('/overzicht', [VoedselpakketOverzichtController::class, 'index']);
+Route::get('/gezin/{id}', [VoedselpakketOverzichtController::class, 'show']);
+Route::get('/gezin/{id}/edit', [VoedselpakketOverzichtController::class, 'edit']);
+Route::put('/gezin/{id}', [VoedselpakketOverzichtController::class, 'update']);
 
