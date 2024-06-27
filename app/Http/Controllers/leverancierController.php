@@ -12,7 +12,11 @@ use Illuminate\Support\Facades\DB;
 
 class leverancierController extends Controller
 {
-    //
+    // Function to show the homepage
+    public function homepage()
+    {
+        return view('leverancier.homepage');
+    }
     public function overzicht_leverancier(Request $request)
     {
         //request is filled with leveranciertype filled in by user in the form.
@@ -31,7 +35,8 @@ class leverancierController extends Controller
                 'contact.id',
                 '=',
                 'contactperleverancier.contactid'
-            );
+            )
+            ->select('leverancier.id as leverancierId', 'leverancier.*', 'contact.*'); // Explicitly select leverancier.id and alias it as leverancierId
 
         // Add the filter if it is set
         if (!empty($leveranciertype)) {
@@ -53,8 +58,40 @@ class leverancierController extends Controller
             'selectedType' => $leveranciertype
         ]);
     }
-    public function overzicht_producten()
+    public function overzicht_producten($id)
     {
-        return view('leverancier/overzichtProduct');
+        // Get all products for the given leverancier
+        $producten = ProductPerLeverancier::select(
+            'leverancier.id as leverancier_id',
+            'leverancier.naam as leverancier_naam',
+            'leverancier.leveranciernummer',
+            'leverancier.leveranciertype',
+            'product.id as product_id',
+            'product.naam as product_naam',
+            'product.soortallergie',
+            'product.barcode',
+            'product.houdbaarheidsdatum',
+        )
+            ->join('leverancier', 'productperleverancier.leverancierid', '=', 'leverancier.id') // Adjust the foreign key and table name as necessary
+            ->join('product', 'productperleverancier.productid', '=', 'product.id') // Adjust the foreign key and table name as necessary
+            ->where('leverancier.id', $id)
+            ->get();
+        //dd($producten);
+        return view('leverancier/overzichtProduct', [
+            'producten' => $producten
+        ]);
+    }
+    public function wijzigen($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('leverancier.wijzigen', [
+            'product' => $product
+        ]);
+    }
+    public function update(Request $request, $id)
+    {
+        $product = Product::findOrFail($id);
+        $product->update($request->all());
+        return redirect()->route('leverancier.overzicht_producten', ['id' => $product->leverancierid]);
     }
 }
