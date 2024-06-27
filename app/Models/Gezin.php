@@ -25,11 +25,11 @@ class Gezin extends Model
 
     public function personen()
     {
-        return $this->belongsTo(Persoon::class);
+        return $this->hasMany(Persoon::class, 'gezin_id', 'id');
     }
 
     public function eetwenspergezin()
     {
-        return $this->belongsTo(Eetwenspergezin::class);
+        return $this->hasMany(Eetwenspergezin::class, 'gezinId', 'id');
     }
 }

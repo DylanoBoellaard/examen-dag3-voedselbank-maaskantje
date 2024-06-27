@@ -13,21 +13,29 @@ class VoedselpakketOverzichtController extends Controller
 {
     public function index(Request $request)
     {
-        $gezinnen = DB::select("SELECT * FROM gezin
-        JOIN eetwenspergezin ON gezin.id = eetwenspergezin.gezinId
-        JOIN persoon ON gezin.id = persoon.gezin_id
-        WHERE persoon.isvertegenwoordiger = 1");
+        // search for gezinnen with a vertegenwoordiger
+        $gezinnen = Gezin::whereHas('personen', function ($query) {
+            $query->where('isvertegenwoordiger', 1);
+        })->with('personen')->get();
 
-        $selected_eetwens = $request->input('eetwens_id', null);
-        $result = DB::select("SELECT id, naam FROM eetwens WHERE id");
-        $vergelijking = DB::select("SELECT * FROM eetwenspergezin");
+        // search for gezinnen with a vertegenwoordiger and a specific eetwens
+        $eetwens = DB::select("SELECT id, naam FROM eetwens WHERE id");
+        $selected_eetwens = $request->input('selector', null);
 
+        // searches for gezinnen with a vertegenwoordiger and a specific eetwens
         if ($selected_eetwens) {
-            $vergelijking = DB::select("SELECT eetwensId FROM eetwenspergezin WHERE eetwensId = $selected_eetwens");
+            $gezinnen = Gezin::whereHas('eetwenspergezin', function ($query) use ($selected_eetwens) {
+                $query->where('eetwensId', $selected_eetwens);
+            })
+            ->whereHas('personen', function ($query) {
+                $query->where('isvertegenwoordiger', 1);
+            })
+            ->get();
         }
 
+        // returns the view with the gezinnen and eetwens
         return view('voedselpakketten.overzicht', [
-            'gezinnen' => $gezinnen, 'result' => $result
+            'gezinnen' => $gezinnen, 'eetwens' => $eetwens
         ]);
     }
 
@@ -35,12 +43,8 @@ class VoedselpakketOverzichtController extends Controller
     {
         $gezin = Gezin::find($id);
 
-        $pakketten = DB::select("SELECT * FROM voedselpakket
-                                    JOIN productpervoedselpakket ON voedselpakket.id = productpervoedselpakket.voedselpakketId
-                                    WHERE voedselpakket.gezinId = $id");
-
         return view('voedselpakketten.overzichtvoedsel', [
-            'gezin' => $gezin, 'pakketten' => $pakketten
+            'gezin' => $gezin
         ]);
     }
 }
