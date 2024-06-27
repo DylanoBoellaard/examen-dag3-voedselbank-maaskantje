@@ -37,29 +37,31 @@ class Feature02 extends Controller
 
         return view('klanten/klantdetails', ['klanten' => $klanten]);
     }
-    public function Wijzig($persoonId)
+    public function Wijzig()
     {
         $klant = DB::table('gezin')
             ->join('persoon', 'gezin.id', '=', 'persoon.gezinId')
             ->join('contact_Per_Gezin', 'gezin.id', '=', 'contact_Per_Gezin.gezinId')
             ->join('contact', 'contact_Per_Gezin.contactId', '=', 'contact.id')
-            ->where('persoon.id', $persoonId)
+            ->where('persoon.id', '=', 8)
             ->select(
                 'persoon.id as persoonId',
                 'persoon.voornaam',
                 'persoon.tussenvoegsel',
                 'persoon.achternaam',
-                'persoon.geboortedatum'
-                // Add other fields as needed
+                'persoon.geboortedatum',
+                'persoon.typePersoon',
+                'persoon.isvertegenwoordiger',
+                'contact.straat',
+                'contact.huisnummer',
+                'contact.toevoeging',
+                'contact.postcode',
+                'contact.woonplaats',
+                'contact.email',
+                'contact.mobiel'
             )
             ->first(); // Use first() to get a single instance
 
-        // Make sure to check if $klant is null before returning the view
-        if (!$klant) {
-            // Handle the case where no klant is found, e.g., return a 404 page or a redirect
-            abort(404);
-        }
-
-        return view('klanten.klantwijzigen', compact('klant'));
+        return view('klanten.wijzigklant', compact('klant'));
     }
 }

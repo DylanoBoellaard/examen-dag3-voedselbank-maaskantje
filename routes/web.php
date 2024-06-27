@@ -19,4 +19,4 @@ Route::get('/voedselbank-maaskanje.org', [Feature01::class, 'Home']);
 Route::get('/klanten/overzicht', [Feature01::class, 'Overzicht'])->name('klanten.overzicht');
 
 Route::get('/klanten/klantdetails/{persoonId}', [Feature02::class, 'Klant'])->name('klantdetails');
-Route::get('/klanten/wijzigklant/{persoonId}', [Feature02::class, 'Wijzig'])->name('klantwijzig');
+Route::get('/klanten/wijzigklant', [Feature02::class, 'Wijzig'])->name('klantwijzig');

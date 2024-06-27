@@ -17,10 +17,22 @@
         border: 1px solid black;
         padding: 10px;
     }
+
+    h1 {
+        color: green;
+    }
 </style>
 
 <body>
+    @if(!$klanten->isEmpty())
+    @php
+    $firstKlant = $klanten->first();
+    $fullName = $firstKlant->voornaam . ' ' . ($firstKlant->tussenvoegsel ?? '') . ' ' . $firstKlant->achternaam;
+    @endphp
+    <h1><u>Klant Details {{ trim($fullName) }}</u></h1>
+    @else
     <h1>Klant Details</h1>
+    @endif
     <table>
         <tr>
             <th>Voornaam</th>
@@ -100,8 +112,17 @@
             <td>{{ $klant->mobiel }}</td>
             @endforeach
         </tr>
+        <tr>
+            @foreach ($klanten as $klant)
+            <td>
+                <a href="{{ route('klantwijzig') }}" style="background-color: blue; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Wijzig</a>
+            </td>
+            @endforeach
+        </tr>
     </table>
-    <a href="{{ route('klantwijzig', ['persoonId' => $klanten->persoonId]) }}" style="background-color: blue; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Edit</a>
+
+
+
 </body>
 
 </html>
