@@ -11,7 +11,7 @@ class VoorraadController extends Controller
     // this methods send the user to the homepage
     public function homepage()
     {
-        return view('homepage');
+        return view('voorraad.homepage');
     }
 
     // this function sends the user to the overzicht voorraad page
