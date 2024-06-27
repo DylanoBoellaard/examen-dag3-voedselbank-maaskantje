@@ -1,9 +1,18 @@
+<!-- add icons so i can use icons and style them -->
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
 <!-- gets the template from the layouts folder -->
 @include('./layouts/app')
 
-<div>
+<section class="container">
     <!-- title of the overzicht page -->
-    <h2>Overzicht ProductVoorraden</h2>
+    <section class="title">
+        <h2>Overzicht ProductVoorraden</h2>
+
+    </section>
     <!-- form for the user to submit when they choose a categorie -->
     <form action="{{route('overzicht')}}" method="post">
         <!-- protection key -->
@@ -11,7 +20,7 @@
         <!-- laravel form method to submit -->
         @method('post')
         <!-- select with the name categorie and alot of options to choose from -->
-        <select name="categorie">
+        <select name="categorie" class="select-overzicht">
             <option value="">Selecteer Categorie</option>
             <option value="AGF">AGF</option>
             <option value="KV">KV</option>
@@ -24,9 +33,9 @@
             <option value="BVH">BVH</option>
         </select>
         <!-- submits the form -->
-        <input type="submit" value="Toon Voorraad">
+        <input type="submit" class="overzicht-submit" value="Toon Voorraad">
     </form>
-</div>
+</section>
 
 <section class="table-overzicht">
     <table>
@@ -54,14 +63,14 @@
                 <td>{{$voorraad->MagazijnId}}</td>
                 <td>
                     <a href="{{route('product_details', [$voorraad->id])}}">
-                        <img class="small-img" src="/img/note.png" alt="note.png">
+                        <i class="fa fa-file-text-o"></i>
                     </a>
                 </td>
             </tr>
             <!-- if $data is empty then show this message under the table -->
             @empty
             <tr>
-                <td colspan="7">Er zijn geen producten bekent die behoren bij de geselecteerde productcategorie</td>
+                <td class="overzicht-error" colspan="7">Er zijn geen producten bekent die behoren bij de geselecteerde productcategorie</td>
             </tr>
             @endforelse
         </tbody>
@@ -69,4 +78,6 @@
 </section>
 
 <!-- link back to the homepage -->
-<a href="{{route('homepage')}}">home</a>
+<section class="links-overzicht">
+    <a href="{{route('homepage')}}">home</a>
+</section>
