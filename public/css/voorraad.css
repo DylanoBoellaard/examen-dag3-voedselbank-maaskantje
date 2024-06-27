@@ -72,7 +72,7 @@ section.links-overzicht {
 }
 
 /* gave the a element some space inside and a round border with a color and some background coloralso it removes the underline and gave it some space at the bottom */
-section.links>a, section.links-overzicht>a {
+section.links>span>a, section.links-overzicht>a {
     padding: 1rem;
     border-radius: 0.5rem;
     background-color: var(--light-blue);
@@ -122,4 +122,33 @@ section.table-overzicht>table>tbody>tr>td.overzicht-error {
 td.overzicht-error {
     background-color: var(--light-yellow);
     text-align: center;
+}
+
+section.table-details>table {
+    border-collapse: collapse;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+section.table-details>table>thead>tr>th, section.table-details>table>tbody>tr>td {
+    border: 0.1rem solid var(--gray);
+    padding: 0.5rem;
+}
+
+section.table-details>table>thead>tr>th {
+    text-align: start;
+    padding-right: 1rem;
+}
+
+section.table-details>table>tbody>tr>td {
+    text-align: center;
+    padding: 0.5rem 7rem 0.5rem 7rem;
+}
+
+section.links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    width: 33.5%;
 }

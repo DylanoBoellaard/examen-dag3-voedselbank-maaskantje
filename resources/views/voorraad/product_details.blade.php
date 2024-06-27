@@ -1,6 +1,10 @@
 @include('./layouts/app')
 
-<h2>Product Details {{$data[0]->Naam}}</h2>
+<section class="container">
+    <section class="title">
+        <h2>Product Details {{$data[0]->Naam}}</h2>
+    </section>
+</section>
 
 <!-- this is the section for the table on the details page -->
 <section class="table-details">
@@ -55,6 +59,12 @@
 </section>
 
 <!-- these are the links to the edit page but also the home page and the overzicht page -->
-<a href="{{route('edit', [$data[0]->id])}}">Wijzig</a>
-<a href="{{route('overzicht')}}">terug</a>
-<a href="{{route('homepage')}}">home</a>
+<section class="links">
+    <span>
+        <a href="{{route('edit', [$data[0]->id])}}">Wijzig</a>
+    </span>
+    <span>
+        <a href="{{route('overzicht')}}">terug</a>
+        <a href="{{route('homepage')}}">home</a>
+    </span>
+</section>
