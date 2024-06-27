@@ -14,7 +14,7 @@ class AllergieController extends Controller
     public function overzicht_gezinnen(Request $request)
     {
         // Get all allergieën from database
-        $allergieList = Allergie::all();
+        $allergieList = Allergie::orderBy('id', 'desc')->get();
 
         // Get the selected allergie ID from the submitted form filter request
         $selectedAllergieId = $request->input('allergie');
