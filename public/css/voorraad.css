@@ -1,3 +1,9 @@
+/* this sets colors as variables to call the in the css file through a var() */
+:root {
+    --black: rgb(0,0,0);
+    --gray: rgba(178, 178, 178, 0.5);
+}
+
 /* gives the 7e column of the table data a text center so the image is in the middle instead of to the left */
 td:nth-child(7) {
     text-align: center;
@@ -6,4 +12,16 @@ td:nth-child(7) {
 /* makes the images smaller */
 img.small-img {
     width: 10%;
+}
+
+/* this makes it so the table is sideways for the table on the product_details page */
+section.table-details>table {
+    display: flex;
+    flex-direction: row;
+}
+
+/* give a border to the table and the table heads but also to the table data and it collapses the borders aswell */
+section.table-overzicht>table, section.table-overzicht>table>thead>tr>th, section.table-overzicht>table>tbody>tr>td {
+    border: 0.1rem solid var(--gray);
+    border-collapse: collapse;
 }

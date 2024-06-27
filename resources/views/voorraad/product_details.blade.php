@@ -2,38 +2,59 @@
 
 <h2>Product Details {{$data[0]->Naam}}</h2>
 
-<div>
-    <label for="Naam">Productnaam</label>
-    <input type="text" name="Naam" value="{{$data[0]->Naam}}">
-</div>
-<div>
-    <label for="Houdbaarheidsdatum">Houdbaarheidsdatum</label>
-    <input type="text" name="Houdbaarheidsdatum" value="{{date('d-m-Y', strtotime($data[0]->Houdbaarheidsdatum))}}">
-</div>
+<!-- this is the section for the table on the details page -->
+<section class="table-details">
+    <table>
+        <thead>
+            <tr>
+                <th>Productnaam</th>
+            </tr>
+            <tr>
+                <th>Houdbaarheidsdatum</th>
+            </tr>
+            <tr>
+                <th>Barcode</th>
+            </tr>
+            <tr>
+                <th>Magazijn locatie</th>
+            </tr>
+            <tr>
+                <th>Ontvangstdatum</th>
+            </tr>
+            <tr>
+                <th>Uitleveringsdatum</th>
+            </tr>
+            <tr>
+                <th>Aantal op voorraad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{$data[0]->Naam}}</td>
+            </tr>
+            <tr>
+                <td>{{date('d-m-Y', strtotime($data[0]->Houdbaarheidsdatum))}}</td>
+            </tr>
+            <tr>
+                <td>{{$data[0]->Barcode}}</td>
+            </tr>
+            <tr>
+                <td>{{$data[0]->Locatie}}</td>
+            </tr>
+            <tr>
+                <td>{{date('d-m-Y', strtotime($data[0]->Ontvangstdatum))}}</td>
+            </tr>
+            <tr>
+                <td>{{date('d-m-Y', strtotime($data[0]->Uitleveringsdatum))}}</td>
+            </tr>
+            <tr>
+                <td>{{$data[0]->Aantal}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 
-<div>
-    <label for="Barcode">Barcode</label>
-    <input type="text" name="Barcode" value="{{$data[0]->Barcode}}">
-</div>
-<div>
-    <label for="Locatie">Magazijn locatie</label>
-    <select name="Locatie">
-        <option value="{{$data[0]->Locatie}}">{{$data[0]->Locatie}}</option>
-    </select>
-</div>
-<div>
-    <label for="Ontvangstdatum">Ontvangstdatum</label>
-    <input type="text" name="Ontvangstdatum" value="{{date('d-m-Y', strtotime($data[0]->Ontvangstdatum))}}">
-</div>
-<div>
-    <label for="Uitleveringsdatum">Uitleveringsdatum</label>
-    <input type="date" name="Uitleveringsdatum" value="{{date('d-m-Y', strtotime($data[0]->Uitleveringsdatum))}}">
-</div>
-<div>
-    <label for="Aantal">Aantal op voorraad</label>
-    <input type="text" name="Aantal" value="{{$data[0]->Aantal}}">
-</div>
-
+<!-- these are the links to the edit page but also the home page and the overzicht page -->
 <a href="{{route('edit', [$data[0]->id])}}">Wijzig</a>
 <a href="{{route('overzicht')}}">terug</a>
 <a href="{{route('homepage')}}">home</a>

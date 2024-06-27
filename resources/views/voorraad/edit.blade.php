@@ -56,7 +56,7 @@
     </div>
     <div>
         <label for="Uitleveringsdatum">Uitleveringsdatum</label>
-        <input type="date" name="Uitleveringsdatum" value="{{date('d-m-Y', strtotime($data[0]->Uitleveringsdatum))}}">
+        <input type="date" name="Uitleveringsdatum" value="{{date('Y-m-d', strtotime($data[0]->Uitleveringsdatum))}}">
     </div>
     <div>
         <label for="Aantal">Aantal op voorraad</label>
@@ -65,5 +65,6 @@
     <input type="submit" value="Wijzig Product Details">
 </form>
 
-<a href="{{route('overzicht')}}">terug</a>
+<!-- these links go to the details page and the homepage -->
+<a href="{{route('product_details', [$data[0]->id])}}">terug</a>
 <a href="{{route('homepage')}}">home</a>

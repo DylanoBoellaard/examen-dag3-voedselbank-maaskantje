@@ -28,43 +28,45 @@
     </form>
 </div>
 
-<table border="1" style="border-collapse: collapse;">
-    <thead>
-        <!-- table heads for the table columns -->
-        <tr>
-            <th>Productnaam</th>
-            <th>Categorie</th>
-            <th>Eenheid</th>
-            <th>Aantal</th>
-            <th>Houdbaarheidsdatum</th>
-            <th>Magazijn</th>
-            <th>Voorraad Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- if $data has data then show go through the data and make the rows with the data -->
-        @forelse ($data as $voorraad)
-        <tr>
-            <td>{{$voorraad->Product_naam}}</td>
-            <td>{{$voorraad->Categorie_naam}}</td>
-            <td>{{$voorraad->VerpakkingsEenheid}}</td>
-            <td>{{$voorraad->Aantal}}</td>
-            <td>{{date('d-m-Y', strtotime($voorraad->Houdbaarheidsdatum))}}</td>
-            <td>{{$voorraad->MagazijnId}}</td>
-            <td>
-                <a href="{{route('product_details', [$voorraad->id])}}">
-                    <img class="small-img" src="/img/note.png" alt="note.png">
-                </a>
-            </td>
-        </tr>
-        <!-- if $data is empty then show this message under the table -->
-        @empty
-        <tr>
-            <td colspan="7">Er zijn geen producten bekent die behoren bij de geselecteerde productcategorie</td>
-        </tr>
-        @endforelse
-    </tbody>
-</table>
+<section class="table-overzicht">
+    <table>
+        <thead>
+            <!-- table heads for the table columns -->
+            <tr>
+                <th>Productnaam</th>
+                <th>Categorie</th>
+                <th>Eenheid</th>
+                <th>Aantal</th>
+                <th>Houdbaarheidsdatum</th>
+                <th>Magazijn</th>
+                <th>Voorraad Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- if $data has data then show go through the data and make the rows with the data -->
+            @forelse ($data as $voorraad)
+            <tr>
+                <td>{{$voorraad->Product_naam}}</td>
+                <td>{{$voorraad->Categorie_naam}}</td>
+                <td>{{$voorraad->VerpakkingsEenheid}}</td>
+                <td>{{$voorraad->Aantal}}</td>
+                <td>{{date('d-m-Y', strtotime($voorraad->Houdbaarheidsdatum))}}</td>
+                <td>{{$voorraad->MagazijnId}}</td>
+                <td>
+                    <a href="{{route('product_details', [$voorraad->id])}}">
+                        <img class="small-img" src="/img/note.png" alt="note.png">
+                    </a>
+                </td>
+            </tr>
+            <!-- if $data is empty then show this message under the table -->
+            @empty
+            <tr>
+                <td colspan="7">Er zijn geen producten bekent die behoren bij de geselecteerde productcategorie</td>
+            </tr>
+            @endforelse
+        </tbody>
+    </table>
+</section>
 
 <!-- link back to the homepage -->
 <a href="{{route('homepage')}}">home</a>
