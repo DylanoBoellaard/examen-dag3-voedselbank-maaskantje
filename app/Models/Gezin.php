@@ -23,13 +23,21 @@ class Gezin extends Model
         'totaalpersonen',
     ];
 
+    // Get the personen for the gezin.
     public function personen()
     {
         return $this->hasMany(Persoon::class, 'gezin_id', 'id');
     }
 
+    // Get the eetwenspergezin for the gezin.
     public function eetwenspergezin()
     {
         return $this->hasMany(Eetwenspergezin::class, 'gezinId', 'id');
+    }
+
+    // Get the voedselpakket for the gezin.
+    public function voedselpakket()
+    {
+        return $this->hasMany(Voedselpakket::class, 'gezinId', 'id');
     }
 }

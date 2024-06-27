@@ -21,6 +21,7 @@ class Eetwens extends Model
         'omschrijving',
     ];
 
+    // Get the gezinnen for the eetwens.
     public function gezinnen() : BelongsTo
     {
         return $this->belongsTo(Eetwenspergezin::class, 'eetwenspergezin'); 

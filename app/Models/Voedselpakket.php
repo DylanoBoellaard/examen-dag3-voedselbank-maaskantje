@@ -20,4 +20,9 @@ class Voedselpakket extends Model
         'datumuitgifte',
         'status',
     ];
+
+    public function voedselpakketpereenheid()
+    {
+        return $this->hasMany(Productpervoedselpakket::class, 'voedselpakketId', 'id');
+    }
 }

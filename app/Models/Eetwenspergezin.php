@@ -18,11 +18,13 @@ class Eetwenspergezin extends Model
         'eetwensId',
     ];
 
+    // Get the gezin that owns the eetwenspergezin.
     public function gezin()
     {
         return $this->belongsTo(Gezin::class, 'gezin');
     }
 
+    // Get the eetwens that owns the eetwenspergezin.
     public function eetwens()
     {
         return $this->belongsTo(Eetwens::class, 'eetwensId', 'id');

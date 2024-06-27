@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    @vite(['resources/scss/layout.scss'])
 </head>
 
 <body>
@@ -14,12 +15,14 @@
         <table>
             <tr>
                 <th>Naam: </th>
-                <th>Omschrijving</th>
-                <th>Totaal aantal Personen</th>
+                <td>{{ $gezin->naam }}</td>
             </tr>
             <tr>
-                <td>{{ $gezin->naam }}</td>
+                <th>Omschrijving</th>
                 <td>{{ $gezin->omschrijving }}</td>
+            </tr>
+            <tr>
+                <th>Totaal aantal Personen</th>
                 <td>{{ $gezin->totaalpersonen }}</td>
             </tr>
         </table>
@@ -33,15 +36,21 @@
                 <th>Aantal producten</th>
                 <th>Wijzig Status</th>
             </tr>
-            @foreach($pakketten as $pakket)
+            @foreach($voedselpakket as $voedselpakket)
+            @foreach($voedselpakket->voedselpakketpereenheid as $eenheid)
             <tr>
-                <td>{{ $pakket->pakketnummer }}</td>
-                <td>{{ $pakket->datumsamenstelling }}</td>
-                <td>{{ $pakket->datumuitgifte }}</td>
-                <td>{{ $pakket->status }}</td>
-                <td></td>
-                <td>Wijzig</td>
+                <td>{{ $voedselpakket->pakketnummer }}</td>
+                <td>{{ $voedselpakket->datumsamenstelling }}</td>
+                @if($voedselpakket->datumuitgifte == null)
+                <td>Geen datum</td>
+                @else
+                <td>{{ $voedselpakket->datumuitgifte }}</td>
+                @endif
+                <td>{{ $voedselpakket->status }}</td>
+                <td>{{ $eenheid->aantalproducteneenheden }}</td>
+                <td><a href="">Wijzig</a></td>
             </tr>
+            @endforeach
             @endforeach
 
         </table>

@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Gezin;
-use App\Models\Persoon;
-use App\Models\Eetwenspergezin;
+use App\Models\Productpervoedselpakket;
+use App\Models\Voedselpakket;
 use App\Models\Eetwens;
 
 class VoedselpakketOverzichtController extends Controller
@@ -42,9 +42,12 @@ class VoedselpakketOverzichtController extends Controller
     public function show($id)
     {
         $gezin = Gezin::find($id);
+        $voedselpakket = Voedselpakket::where('gezinId', $id)->with('voedselpakketpereenheid')->get();
+
+        // dd($voedselpakket);
 
         return view('voedselpakketten.overzichtvoedsel', [
-            'gezin' => $gezin
+            'gezin' => $gezin, 'voedselpakket' => $voedselpakket
         ]);
     }
 }
