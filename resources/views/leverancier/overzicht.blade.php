@@ -26,7 +26,9 @@
             <td>{{ $leverancier->mobiel }}</td>
             <td>{{ $leverancier->leveranciernummer }}</td>
             <td>{{ $leverancier->leveranciertype }}</td>
-            <td><a href="{{ route('leverancier.overzicht_producten') }}">detail</a></td>
+            <td><a href="{{ route('leverancier.overzicht_producten', ['id' => $leverancier->leverancierId]) }}">detail</a></td>
+
+
         </tr>
         @endforeach
         <!--checks if leverancier is empty of not. if so send error message-->
