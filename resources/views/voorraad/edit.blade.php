@@ -28,7 +28,7 @@
     </div>
     <div>
         <label for="Houdbaarheidsdatum">Houdbaarheidsdatum</label>
-        <input type="text" name="Houdbaarheidsdatum" value="{{$data[0]->Houdbaarheidsdatum}}">
+        <input type="text" name="Houdbaarheidsdatum" value="{{date('d-m-Y', strtotime($data[0]->Houdbaarheidsdatum))}}">
     </div>
 
     <div>

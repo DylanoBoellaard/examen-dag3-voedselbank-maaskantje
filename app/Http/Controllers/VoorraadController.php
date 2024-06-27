@@ -71,7 +71,7 @@ class VoorraadController extends Controller
             $magazijn = [
                 'Ontvangstdatum' => date('Y-m-d', strtotime($request->Ontvangstdatum)),
                 'Uitleveringsdatum' => date('Y-m-d', strtotime($request->Uitleveringsdatum)),
-                'Aantal' => $request->Aantal
+                'Aantal' => $request->Aantal - $request->AantalUitgeleleverdeProducten
             ];
 
             $productpermagazijn = [

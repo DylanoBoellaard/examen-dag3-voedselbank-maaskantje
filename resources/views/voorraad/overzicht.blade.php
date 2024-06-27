@@ -49,7 +49,7 @@
             <td>{{$voorraad->Categorie_naam}}</td>
             <td>{{$voorraad->VerpakkingsEenheid}}</td>
             <td>{{$voorraad->Aantal}}</td>
-            <td>{{$voorraad->Houdbaarheidsdatum}}</td>
+            <td>{{date('d-m-Y', strtotime($voorraad->Houdbaarheidsdatum))}}</td>
             <td>{{$voorraad->MagazijnId}}</td>
             <td>
                 <a href="{{route('product_details', [$voorraad->id])}}">

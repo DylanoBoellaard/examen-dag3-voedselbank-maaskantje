@@ -8,7 +8,7 @@
 </div>
 <div>
     <label for="Houdbaarheidsdatum">Houdbaarheidsdatum</label>
-    <input type="text" name="Houdbaarheidsdatum" value="{{$data[0]->Houdbaarheidsdatum}}">
+    <input type="text" name="Houdbaarheidsdatum" value="{{date('d-m-Y', strtotime($data[0]->Houdbaarheidsdatum))}}">
 </div>
 
 <div>
@@ -24,10 +24,6 @@
 <div>
     <label for="Ontvangstdatum">Ontvangstdatum</label>
     <input type="text" name="Ontvangstdatum" value="{{date('d-m-Y', strtotime($data[0]->Ontvangstdatum))}}">
-</div>
-<div>
-    <label for="AantalUitgeleleverdeProducten">Aantal uitgeleverde producten</label>
-    <input type="text" name="AantalUitgeleleverdeProducten">
 </div>
 <div>
     <label for="Uitleveringsdatum">Uitleveringsdatum</label>
