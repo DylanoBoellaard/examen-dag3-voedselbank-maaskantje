@@ -64,4 +64,44 @@ class Feature02 extends Controller
 
         return view('klanten.wijzigklant', compact('klant'));
     }
+    public function WijzigKlant(Request $request)
+    {
+        // Validate the request data
+        $validated = $request->validate([
+            'voornaam' => 'required|string|max:255',
+            'achternaam' => 'required|string|max:255',
+        ]);
+
+        // Find the Persoon by ID from the request
+        $persoonId = 8;
+        $contactId = 2;
+
+
+        // Update the Persoon with the validated data
+        $persoon = Persoon::find($persoonId);
+        if ($persoon) {
+            $persoon->voornaam = $validated['voornaam'];
+            $persoon->tussenvoegsel = $validated['tussenvoegsel'];
+            $persoon->achternaam = $validated['achternaam'];
+            $persoon->geboortedatum = $validated['geboortedatum'];
+            $persoon->typePersoon = $validated['typePersoon'];
+            $persoon->isvertegenwoordiger = $validated['isvertegenwoordiger'];
+            $persoon->save();
+        }
+
+        $contact = Contact::find($contactId);
+        if ($contact) {
+
+            $contact->straat = $validated['straat'];
+            $contact->huisnummer = $validated['huisnummer'];
+            $contact->toevoeging = $validated['toevoeging'];
+            $contact->postcode = $validated['postcode'];
+            $contact->woonplaats = $validated['woonplaats'];
+            $contact->email = $validated['email'];
+            $contact->mobiel = $validated['mobiel'];
+            $contact->save();
+        }
+
+        return redirect()->route('klanten.index')->with('success', 'Klant successfully updated');
+    }
 }

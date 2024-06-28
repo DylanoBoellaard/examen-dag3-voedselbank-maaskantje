@@ -20,3 +20,5 @@ Route::get('/klanten/overzicht', [Feature01::class, 'Overzicht'])->name('klanten
 
 Route::get('/klanten/klantdetails/{persoonId}', [Feature02::class, 'Klant'])->name('klantdetails');
 Route::get('/klanten/wijzigklant', [Feature02::class, 'Wijzig'])->name('klantwijzig');
+
+Route::put('/klanten/wijzigklant', [Feature02::class, 'Wijzig'])->name('klantwijzig');
