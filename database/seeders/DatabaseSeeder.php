@@ -35,6 +35,10 @@ class DatabaseSeeder extends Seeder
             ContactPerLeverancierSeeder::class,
             ProductSeeder::class,
             ProductPerLeverancierSeeder::class,
+            MagazijnSeeder::class,
+            CategorieSeeder::class,
+            ProductPerMagazijnSeeder::class,
         ]);
+       
     }
 }

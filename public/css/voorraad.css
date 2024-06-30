@@ -1,0 +1,233 @@
+/* removes the basic margin and basic padding from all the elements */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* this sets colors as variables to call the in the css file through a var() */
+:root {
+    --black: rgb(0,0,0);
+    --white: rgb(255,255,255);
+    --gray: rgba(178, 178, 178, 0.5);
+    --dark-gray: rgb(120, 120, 120);
+    --green: rgb(10, 149, 0);
+    --light-green: rgba(56, 189, 47,0.7);
+    --blue: rgb(0, 6, 189);
+    --light-blue: rgb(0, 7, 214);
+    --light-yellow: rgb(255, 223, 79);
+    --red: rgb(255, 0, 0);
+    --light-red: rgba(255, 0, 0,0.7);
+}
+
+/* gives the 7e column of the table data a text center so the image is in the middle instead of to the left */
+td:nth-child(7) {
+    text-align: center;
+}
+
+/* this makes it so the table is sideways for the table on the product_details page */
+section.table-details>table {
+    display: flex;
+    flex-direction: row;
+}
+
+/* give a border to the table and the table heads but also to the table data and it collapses the borders aswell */
+section.table-overzicht>table, section.table-overzicht>table>thead>tr>th, section.table-overzicht>table>tbody>tr>td {
+    border: 0.1rem solid var(--gray);
+    border-collapse: collapse;
+}
+
+/* adds some space inside of the table heads and table data */
+section.table-overzicht>table>thead>tr>th, section.table-overzicht>table>tbody>tr>td {
+    padding: 0.5rem;
+}
+
+/* changed the align of the txt that was centered to be more to the left */
+section.table-overzicht>table>thead>tr>th {
+    text-align: start;
+}
+
+/* gave the overzicht table a default width and some margin on the left en top */
+section.table-overzicht>table {
+    width: 75%;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+/* sets an standard color green to all the txt in this element also adds a underline under the text */
+section.title>h2 {
+    color: var(--green);
+    text-decoration: underline;
+}
+
+/* gave the section title with a h1 a margin left and top of 1rem */
+/* also does that same styling for the a link on the home page */
+section.title>h1, section.homepage-a {
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+/* makes sure the content inside starts at the end and also gave it some space at the top and a width of 76% */
+section.links-overzicht {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    width: 76%;
+}
+
+/* gave the a element some space inside and a round border with a color and some background coloralso it removes the underline and gave it some space at the bottom */
+section.links>span>a, section.links>a, section.links-overzicht>a {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--light-blue);
+    color: var(--white);
+    text-decoration: none;
+    margin-bottom: 2rem;
+}
+
+/* sets all the elements in the section.container to be next to each other */
+/* also sets some space between the 2 child elements and puts some margin at the top, left and right sides */
+/* also added a default width */
+section.container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    width: 75%;
+}
+
+/* added some space in these elements */
+/* makes the corners more round and adds some space to the left */
+select.select-overzicht, input.overzicht-submit {
+    padding: 0.4rem;
+    border-radius: 0.5rem;
+    margin-left: 1rem;
+}
+
+/* makes the cursor of the user a pointer */
+select.select-overzicht:hover, input.overzicht-submit:hover {
+    cursor: pointer;
+}
+
+/* gave the submit button on the overzicht page a background color and color a new color */
+input.overzicht-submit {
+    background-color: var(--dark-gray);
+    color: var(--white);
+}
+
+/* added some space inside the error message td */
+section.table-overzicht>table>tbody>tr>td.overzicht-error {
+    padding: 1rem;
+}
+
+/* added a yellow background to the error message td */
+/* and also added that the txt gets centered */
+td.overzicht-error {
+    background-color: var(--light-yellow);
+    text-align: center;
+}
+
+section.table-details>table {
+    border-collapse: collapse;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+section.table-details>table>thead>tr>th, section.table-details>table>tbody>tr>td {
+    border: 0.1rem solid var(--gray);
+    padding: 0.5rem;
+}
+
+section.table-details>table>thead>tr>th {
+    text-align: start;
+    padding-right: 1rem;
+}
+
+section.table-details>table>tbody>tr>td {
+    text-align: center;
+    padding: 0.5rem 7rem 0.5rem 7rem;
+}
+
+section.links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    width: 33.5%;
+}
+
+form.edit-form {
+    display: flex;
+    flex-direction: row;
+}
+
+form.edit-form>div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    margin-right: 6rem;
+}
+
+form.edit-form>div>label {
+    margin-bottom: 1.1rem;
+    margin-left: 1rem;
+}
+
+form.edit-form>div>input, form.edit-form>div>select {
+    padding: 0.25rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--gray);
+}
+
+section.links-edit {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+section.links-edit>a, input.submit-edit {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--light-blue);
+    color: var(--white);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+}
+
+input.submit-edit {
+    border: none;
+    height: 13%;
+    margin-top: 1rem;
+}
+
+li.input-error-message>span {
+    color: var(--red);
+}
+
+li.input-error-message {
+    margin-bottom: 0.5rem;
+}
+
+section.succes-text>h3 {
+    background-color: var(--light-green);
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    width: 28%;
+}
+
+section.error-text>h3 {
+    background-color: var(--light-red);
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    width: 44%;
+}
+
+.active {
+    margin-top: 1rem;
+}

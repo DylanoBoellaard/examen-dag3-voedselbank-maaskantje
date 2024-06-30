@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Product;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Product;
 
 class ProductSeeder extends Seeder
 {
@@ -13,303 +13,272 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        //seeder for product
         $data = [
             [
-                'id' => 1,
-                'categorieid' => 1,
-                'naam' => 'aardappel',
-                'soortallergie' => 'null',
-                'barcode' => '8719587321239',
-                'houdbaarheidsdatum' => '2024-07-12',
-                'omschrijving' => 'kruimige aardappel',
-                'status' => 'opvoorraad'
+                'CategorieId' => 1,
+                'Naam' => 'Aardappel',
+                'SoortAllergie' => null,
+                'Barcode' => '8719587321239',
+                'Houdbaarheidsdatum' => '2024-07-12',
+                'Omschrijving' => 'Kruimige Aardappel',
+                'Status' => 'OpVoorraad'
             ],
             [
-                'id' => 2,
-                'categorieid' => 1,
-                'naam' => 'aardappel',
-                'soortallergie' => 'null',
-                'barcode' => '8719587321238',
-                'houdbaarheidsdatum' => '2024-07-26',
-                'omschrijving' => 'kruimige aardappel',
-                'status' => 'opvoorraad'
+                'CategorieId' => 1,
+                'Naam' => 'Aardappel',
+                'SoortAllergie' => null,
+                'Barcode' => '8719587321239',
+                'Houdbaarheidsdatum' => '2024-07-26',
+                'Omschrijving' => 'Kruimige Aardappel',
+                'Status' => 'OpVoorraad'
             ],
             [
-                'id' => 3,
-                'categorieid' => 1,
-                'naam' => 'ui',
-                'soortallergie' => 'null',
-                'barcode' => '8719487321336',
-                'houdbaarheidsdatum' => '2024-09-09',
-                'omschrijving' => 'gele ui',
-                'status' => 'nietopvoorraad'
+                'CategorieId' => 1,
+                'Naam' => 'Ui',
+                'SoortAllergie' => null,
+                'Barcode' => '8719437321335',
+                'Houdbaarheidsdatum' => '2024-09-02',
+                'Omschrijving' => 'Gele ui',
+                'Status' => 'NietOpVoorraad'
             ],
             [
-                'id' => 4,
-                'categorieid' => 1,
-                'naam' => 'appel',
-                'soortallergie' => 'null',
-                'barcode' => '8719486321332',
-                'houdbaarheidsdatum' => '2024-08-16',
-                'omschrijving' => 'granny smith',
-                'status' => 'nietleverbaar'
+                'CategorieId' => 1,
+                'Naam' => 'Appel',
+                'SoortAllergie' => null,
+                'Barcode' => '8719486321332',
+                'Houdbaarheidsdatum' => '2024-08-16',
+                'Omschrijving' => 'Granny smith',
+                'Status' => 'NietLeverbaar'
             ],
             [
-                'id' => 5,
-                'categorieid' => 1,
-                'naam' => 'appel',
-                'soortallergie' => 'null',
-                'barcode' => '8719486321332',
-                'houdbaarheidsdatum' => '2024-08-16',
-                'omschrijving' => 'granny smith',
-                'status' => 'nietleverbaar'
+                'CategorieId' => 1,
+                'Naam' => 'Appel',
+                'SoortAllergie' => null,
+                'Barcode' => '8719486321332',
+                'Houdbaarheidsdatum' => '2024-09-23',
+                'Omschrijving' => 'Granny smith',
+                'Status' => 'NietLeverbaar'
             ],
             [
-                'id' => 6,
-                'categorieid' => 1,
-                'naam' => 'banaan',
-                'soortallergie' => 'banaan',
-                'barcode' => '8719484321338',
-                'houdbaarheidsdatum' => '2024-07-12',
-                'omschrijving' => 'biologische banaan',
-                'status' => 'overhoudbaarheidsdatum'
+                'CategorieId' => 1,
+                'Naam' => 'Banaan',
+                'SoortAllergie' => 'Banaan',
+                'Barcode' => '8719484321336',
+                'Houdbaarheidsdatum' => '2024-07-12',
+                'Omschrijving' => 'Biologische Banaan',
+                'Status' => 'OverHoudbaarheidsDatum'
             ],
             [
-                'id' => 7,
-                'categorieid' => 1,
-                'naam' => 'banaan',
-                'soortallergie' => 'banaan',
-                'barcode' => '8719484321338',
-                'houdbaarheidsdatum' => '2024-07-19',
-                'omschrijving' => 'biologische banaan',
-                'status' => 'overhoudbaarheidsdatum'
+                'CategorieId' => 1,
+                'Naam' => 'Banaan',
+                'SoortAllergie' => 'Banaan',
+                'Barcode' => '8719484321336',
+                'Houdbaarheidsdatum' => '2024-07-19',
+                'Omschrijving' => 'Biologische Banaan',
+                'Status' => 'OverHoudbaarheidsDatum'
             ],
             [
-                'id' => 8,
-                'categorieid' => 2,
-                'naam' => 'kaas',
-                'soortallergie' => 'lactose',
-                'barcode' => '8719487321338',
-                'houdbaarheidsdatum' => '2024-07-19',
-                'omschrijving' => 'jonge kaas',
-                'status' => 'opvoorraad'
+                'CategorieId' => 2,
+                'Naam' => 'Kaas',
+                'SoortAllergie' => 'Lactose',
+                'Barcode' => '8719487421338',
+                'Houdbaarheidsdatum' => '2024-09-19',
+                'Omschrijving' => 'Jonge Kaas',
+                'Status' => 'OpVoorraad'
             ],
             [
-                'id' => 9,
-                'categorieid' => 2,
-                'naam' => 'rosbief',
-                'soortallergie' => 'null',
-                'barcode' => '8719487421331',
-                'houdbaarheidsdatum' => '2024-07-23',
-                'omschrijving' => 'rundvlees',
-                'status' => 'opvoorraad'
+                'CategorieId' => 2,
+                'Naam' => 'Rosbief',
+                'SoortAllergie' => null,
+                'Barcode' => '8719487421331',
+                'Houdbaarheidsdatum' => '2024-07-23',
+                'Omschrijving' => 'Rundvlees',
+                'Status' => 'OpVoorraad'
             ],
             [
-                'id' => 10,
-                'categorieid' => 3,
-                'naam' => 'melk',
-                'soortallergie' => 'lactose',
-                'barcode' => '8719486321332',
-                'houdbaarheidsdatum' => '2024-08-06',
-                'omschrijving' => 'halfvolle melk',
-                'status' => 'opvoorraad'
+                'CategorieId' => 3,
+                'Naam' => 'Melk',
+                'SoortAllergie' => 'Lactose',
+                'Barcode' => '8719447321332',
+                'Houdbaarheidsdatum' => '2024-07-23',
+                'Omschrijving' => 'Halfvolle melk',
+                'Status' => 'OpVoorraad'
             ],
             [
-                'id' => 11,
-                'categorieid' => 3,
-                'naam' => 'margarine',
-                'soortallergie' => 'null',
-                'barcode' => '8719486321336',
-                'houdbaarheidsdatum' => '2024-07-23',
-                'omschrijving' => 'plantaardige boter',
-                'status' => 'opvoorraad'
+                'CategorieId' => 3,
+                'Naam' => 'Magarine',
+                'SoortAllergie' => null,
+                'Barcode' => '8719486321336',
+                'Houdbaarheidsdatum' => '2024-08-02',
+                'Omschrijving' => 'Plantaardige boter',
+                'Status' => 'OpVoorraad'
             ],
             [
-                'id' => 12,
-                'categorieid' => 3,
-                'naam' => 'ei',
-                'soortallergie' => 'eier',
-                'barcode' => '8719487421334',
-                'houdbaarheidsdatum' => '2024-08-04',
-                'omschrijving' => 'scharrelei',
-                'status' => 'opvoorraad'
+                'CategorieId' => 3,
+                'Naam' => 'Ei',
+                'SoortAllergie' => 'Eier',
+                'Barcode' => '8719487421334',
+                'Houdbaarheidsdatum' => '2024-08-04',
+                'Omschrijving' => 'Scharrelei',
+                'Status' => 'OpVoorraad'
             ],
             [
-                'id' => 13,
-                'categorieid' => 4,
-                'naam' => 'brood',
-                'soortallergie' => 'gluten',
-                'barcode' => '8719487421333',
-                'houdbaarheidsdatum' => '2024-07-07',
-                'omschrijving' => 'volkoren brood',
-                'status' => 'opvoorraad'
+                'CategorieId' => 4,
+                'Naam' => 'Brood',
+                'SoortAllergie' => 'Gluten',
+                'Barcode' => '8719487721337',
+                'Houdbaarheidsdatum' => '2024-07-07',
+                'Omschrijving' => 'Volkoren brood',
+                'Status' => 'OpVoorraad'
             ],
             [
-                'id' => 14,
-                'categorieid' => 4,
-                'naam' => 'gevulde koek',
-                'soortallergie' => 'amandel',
-                'barcode' => '8719487321337',
-                'houdbaarheidsdatum' => '2024-08-23',
-                'omschrijving' => 'banketbakkers kwaliteit',
-                'status' => 'opvoorraad'
+                'CategorieId' => 4,
+                'Naam' => 'Gevulde Koek',
+                'SoortAllergie' => 'Amandel',
+                'Barcode' => '8719483321333',
+                'Houdbaarheidsdatum' => '2024-09-04',
+                'Omschrijving' => 'Banketbakkers kwaliteit',
+                'Status' => 'OpVoorraad'
             ],
             [
-                'id' => 15,
-                'categorieid' => 5,
-                'naam' => 'fristi',
-                'soortallergie' => 'lactose',
-                'barcode' => '8719487321331',
-                'houdbaarheidsdatum' => '2024-10-28',
-                'omschrijving' => 'frisdrank',
-                'status' => 'nietopvoorraad'
+                'CategorieId' => 5,
+                'Naam' => 'Fristi',
+                'SoortAllergie' => 'Lactose',
+                'Barcode' => '8719487121331',
+                'Houdbaarheidsdatum' => '2024-10-28',
+                'Omschrijving' => 'Frisdrank',
+                'Status' => 'NietOpVoorraad'
             ],
             [
-                'id' => 16,
-                'categorieid' => 5,
-                'naam' => 'appelsap',
-                'soortallergie' => 'null',
-                'barcode' => '8719487521335',
-                'houdbaarheidsdatum' => '2024-10-19',
-                'omschrijving' => '100% vruchtensap',
-                'status' => 'opvoorraad'
+                'CategorieId' => 5,
+                'Naam' => 'Appelsap',
+                'SoortAllergie' => null,
+                'Barcode' => '8719487521335',
+                'Houdbaarheidsdatum' => '2024-10-19',
+                'Omschrijving' => '100% vruchtensap',
+                'Status' => 'OpVoorraad'
             ],
             [
-                'id' => 17,
-                'categorieid' => 5,
-                'naam' => 'koffie',
-                'soortallergie' => 'caffeïne',
-                'barcode' => '8719487321336',
-                'houdbaarheidsdatum' => '2024-06-19',
-                'omschrijving' => 'arabica koffie',
-                'status' => 'overhoudbaarheidsdatum'
+                'CategorieId' => 5,
+                'Naam' => 'Koffie',
+                'SoortAllergie' => 'Caffeïne',
+                'Barcode' => '8719487381338',
+                'Houdbaarheidsdatum' => '2024-10-23',
+                'Omschrijving' => 'Arabica koffie',
+                'Status' => 'OverHoudbaarheidsDatum'
             ],
             [
-                'id' => 18,
-                'categorieid' => 5,
-                'naam' => 'thee',
-                'soortallergie' => 'theïne',
-                'barcode' => '8719487329393',
-                'houdbaarheidsdatum' => '2024-09-06',
-                'omschrijving' => 'ceylon thee',
-                'status' => 'opvoorraad'
+                'CategorieId' => 5,
+                'Naam' => 'Thee',
+                'SoortAllergie' => 'Theïne',
+                'Barcode' => '8719487329339',
+                'Houdbaarheidsdatum' => '2024-09-02',
+                'Omschrijving' => 'Ceylon thee',
+                'Status' => 'OpVoorraad'
             ],
             [
-                'id' => 19,
-                'categorieid' => 6,
-                'naam' => 'pasta',
-                'soortallergie' => 'gluten',
-                'barcode' => '8719487321334',
-                'houdbaarheidsdatum' => '2024-12-16',
-                'omschrijving' => 'macaroni',
-                'status' => 'nietleverbaar'
+                'CategorieId' => 6,
+                'Naam' => 'Pasta',
+                'SoortAllergie' => 'Gluten',
+                'Barcode' => '8719487321334',
+                'Houdbaarheidsdatum' => '2024-12-16',
+                'Omschrijving' => 'Macaroni',
+                'Status' => 'NietLeverbaar'
             ],
             [
-                'id' => 20,
-                'categorieid' => 6,
-                'naam' => 'rijst',
-                'soortallergie' => 'null',
-                'barcode' => '8719487321332',
-                'houdbaarheidsdatum' => '2024-12-25',
-                'omschrijving' => 'basmati rijst',
-                'status' => 'opvoorraad'
+                'CategorieId' => 6,
+                'Naam' => 'Rijst',
+                'SoortAllergie' => null,
+                'Barcode' => '8719487331332',
+                'Houdbaarheidsdatum' => '2024-12-25',
+                'Omschrijving' => 'Basmati Rijst',
+                'Status' => 'OpVoorraad'
             ],
             [
-                'id' => 21,
-                'categorieid' => 6,
-                'naam' => 'knorr nasi mix',
-                'soortallergie' => 'null',
-                'barcode' => '8719487371332',
-                'houdbaarheidsdatum' => '2024-12-28',
-                'omschrijving' => 'nasi kruiden',
-                'status' => 'opvoorraad'
+                'CategorieId' => 6,
+                'Naam' => 'Knorr Nasi Mix',
+                'SoortAllergie' => null,
+                'Barcode' => '871948735135',
+                'Houdbaarheidsdatum' => '2024-12-13',
+                'Omschrijving' => 'Nasi kruiden',
+                'Status' => 'OpVoorraad'
             ],
             [
-                'id' => 22,
-                'categorieid' => 7,
-                'naam' => 'tomatensoep',
-                'soortallergie' => 'null',
-                'barcode' => '8719487321337',
-                'houdbaarheidsdatum' => '2024-12-27',
-                'omschrijving' => 'romige tomatensoep',
-                'status' => 'opvoorraad'
+                'CategorieId' => 7,
+                'Naam' => 'Tomatensoep',
+                'SoortAllergie' => null,
+                'Barcode' => '8719487371337',
+                'Houdbaarheidsdatum' => '2024-12-23',
+                'Omschrijving' => 'Romige tomatensoep',
+                'Status' => 'OpVoorraad'
             ],
             [
-
-
-                'id' => 23,
-                'categorieid' => 7,
-                'naam' => 'tomatensaus',
-                'soortallergie' => 'null',
-                'barcode' => '8719487327373',
-                'houdbaarheidsdatum' => '2024-12-23',
-                'omschrijving' => 'pizza saus',
-                'status' => 'nietopvoorraad'
+                'CategorieId' => 7,
+                'Naam' => 'Tomatensaus',
+                'SoortAllergie' => null,
+                'Barcode' => '8719487341334',
+                'Houdbaarheidsdatum' => '2024-12-21',
+                'Omschrijving' => 'Pizza saus',
+                'Status' => 'NietOpVoorraad'
             ],
             [
-                'id' => 24,
-                'categorieid' => 7,
-                'naam' => 'peterselie',
-                'soortallergie' => 'null',
-                'barcode' => '8719487341334',
-                'houdbaarheidsdatum' => '2024-12-21',
-                'omschrijving' => 'verse kruidenpot',
-                'status' => 'opvoorraad'
+                'CategorieId' => 7,
+                'Naam' => 'Peterselie',
+                'SoortAllergie' => null,
+                'Barcode' => '8719487321636',
+                'Houdbaarheidsdatum' => '2024-07-31',
+                'Omschrijving' => 'Verse kruidenpot',
+                'Status' => 'OpVoorraad'
             ],
             [
-                'id' => 25,
-                'categorieid' => 7,
-                'naam' => 'olie',
-                'soortallergie' => 'null',
-                'barcode' => '8719487321636',
-                'houdbaarheidsdatum' => '2024-07-31',
-                'omschrijving' => 'olijfolie',
-                'status' => 'opvoorraad'
+                'CategorieId' => 8,
+                'Naam' => 'Olie',
+                'SoortAllergie' => null,
+                'Barcode' => '8719487327337',
+                'Houdbaarheidsdatum' => '2024-12-27',
+                'Omschrijving' => 'Olijfolie',
+                'Status' => 'OpVoorraad'
             ],
             [
-                'id' => 26,
-                'categorieid' => 8,
-                'naam' => 'mars',
-                'soortallergie' => 'null',
-                'barcode' => '8719487327337',
-                'houdbaarheidsdatum' => '2024-12-27',
-                'omschrijving' => 'snoep',
-                'status' => 'opvoorraad'
+                'CategorieId' => 8,
+                'Naam' => 'Mars',
+                'SoortAllergie' => null,
+                'Barcode' => '8719487324334',
+                'Houdbaarheidsdatum' => '2024-12-11',
+                'Omschrijving' => 'Snoep',
+                'Status' => 'OpVoorraad'
             ],
             [
-                'id' => 27,
-                'categorieid' => 8,
-                'naam' => 'biscuit',
-                'soortallergie' => 'null',
-                'barcode' => '8719487323345',
-                'houdbaarheidsdatum' => '2024-07-06',
-                'omschrijving' => 'san francisco biscuit',
-                'status' => 'opvoorraad'
+                'CategorieId' => 8,
+                'Naam' => 'Biscuit',
+                'SoortAllergie' => null,
+                'Barcode' => '8719487311331',
+                'Houdbaarheidsdatum' => '2024-08-07',
+                'Omschrijving' => 'San Francisco biscuit',
+                'Status' => 'OpVoorraad'
             ],
             [
-                'id' => 28,
-                'categorieid' => 8,
-                'naam' => 'paprika chips',
-                'soortallergie' => 'null',
-                'barcode' => '8719487321838',
-                'houdbaarheidsdatum' => '2024-12-22',
-                'omschrijving' => 'ribbelchips paprika',
-                'status' => 'opvoorraad'
+                'CategorieId' => 8,
+                'Naam' => 'Paprika Chips',
+                'SoortAllergie' => null,
+                'Barcode' => '87194873218398',
+                'Houdbaarheidsdatum' => '2024-12-22',
+                'Omschrijving' => 'Ribbelchips paprika',
+                'Status' => 'OpVoorraad'
             ],
             [
-                'id' => 29,
-                'categorieid' => 8,
-                'naam' => 'chocolade reep',
-                'soortallergie' => 'cacao',
-                'barcode' => '8719487321533',
-                'houdbaarheidsdatum' => '2024-11-21',
-                'omschrijving' => 'tony chocolonely',
-                'status' => 'opvoorraad'
-            ]
+                'CategorieId' => 8,
+                'Naam' => 'Chocolade reep',
+                'SoortAllergie' => 'Cacoa',
+                'Barcode' => '8719487321533',
+                'Houdbaarheidsdatum' => '2024-11-21',
+                'Omschrijving' => 'Tony Chocolonely',
+                'Status' => 'OpVoorraad'
+            ],
         ];
-        foreach ($data as $row) {
-            Product::create($row);
+
+        foreach ($data as $item) {
+            Product::create($item);
         }
     }
 }
