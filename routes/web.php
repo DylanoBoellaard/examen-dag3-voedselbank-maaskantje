@@ -3,6 +3,7 @@
 use App\Http\Controllers\VoedselpakketOverzichtController;
 use App\Http\Controllers\leverancierController;
 use App\Http\Controllers\VoorraadController;
+use App\Http\Controllers\AllergieController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Feature01;
 use App\Http\Controllers\Feature02;
@@ -19,7 +20,7 @@ use App\Http\Controllers\Feature02;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');;
 
 Route::get('/overzicht', [VoedselpakketOverzichtController::class, 'index']);
 Route::get('/gezin/{id}', [VoedselpakketOverzichtController::class, 'show']);
@@ -56,3 +57,20 @@ Route::get('/edit/{voorraadId}', [VoorraadController::class, 'edit'])->name('edi
 
 // when the user clicks on the wijzigen link on the edit page then they go through this route and his method to update the data 
 Route::put('/update/{voorraadId}', [VoorraadController::class, 'update'])->name('update');
+
+// Allergieën
+// Route to display the families with allergies
+Route::get('/voorraad/overzicht', [AllergieController::class, 'overzicht_gezinnen'])->name('allergie.overzicht_gezinnen');
+
+// Route to handle the allergy form filter request for the families
+Route::post('/voorraad/overzicht', [AllergieController::class, 'overzicht_gezinnen'])->name('allergie.filter_gezinnen');
+
+
+// Allergieën per persoon
+Route::get('/voorraad/overzicht/{gezinId}', [AllergieController::class, 'overzicht_gezinsallergieen'])->name('allergie.overzicht_gezinsallergieen');
+
+// Route for editing allergy for selected person
+Route::get('/voorraad/overzicht/wijzigen/{persoonId}', [AllergieController::class, 'wijzigen_allergie'])->name('allergie.wijzigen_allergie');
+
+// Route to update allergy for the selected person after submit request
+Route::post('/voorraad/overzicht/wijzigen/{persoonId}', [AllergieController::class, 'update_allergie'])->name('gezin.update_allergie');

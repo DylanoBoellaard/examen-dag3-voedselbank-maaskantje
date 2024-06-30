@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             VoedselpakketSeeder::class,
-            Gezin::class,
-            Persoon::class,
+            GezinSeeder::class,
+            PersoonSeeder::class,
             EetwensSeeder::class,
             EetwenspergezinSeeder::class,
             ProductpeprvoedselpakketSeeder::class,
@@ -38,7 +38,8 @@ class DatabaseSeeder extends Seeder
             MagazijnSeeder::class,
             CategorieSeeder::class,
             ProductPerMagazijnSeeder::class,
+            AllergieSeeder::class,
+            AllergiePerPersoonSeeder::class
         ]);
-       
     }
 }

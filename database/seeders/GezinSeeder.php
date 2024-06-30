@@ -13,68 +13,89 @@ class GezinSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->command->info('Updating new seed ...');
+        $data = [
+            [
+                'naam' => 'ZevenhuizenGezin',
+                'code' => 'G0001',
+                'omschrijving' => 'Bijstandsgezin',
+                'aantalVolwassenen' => 2,
+                'aantalKinderen' => 2,
+                'aantalBabys' => 0,
+                'totaalAantalPersonen' => 4,
+                'isActief' => true,
+                'opmerkingen' => null,
+                'created_at' => now()->micro(6),
+                'updated_at' => now()->micro(6),
+            ],
+            [
+                'naam' => 'BergkampGezin',
+                'code' => 'G0002',
+                'omschrijving' => 'Bijstandsgezin',
+                'aantalVolwassenen' => 2,
+                'aantalKinderen' => 1,
+                'aantalBabys' => 1,
+                'totaalAantalPersonen' => 4,
+                'isActief' => true,
+                'opmerkingen' => null,
+                'created_at' => now()->micro(6),
+                'updated_at' => now()->micro(6),
+            ],
+            [
+                'naam' => 'HeuvelGezin',
+                'code' => 'G0003',
+                'omschrijving' => 'Bijstandsgezin',
+                'aantalVolwassenen' => 2,
+                'aantalKinderen' => 0,
+                'aantalBabys' => 0,
+                'totaalAantalPersonen' => 0,
+                'isActief' => true,
+                'opmerkingen' => null,
+                'created_at' => now()->micro(6),
+                'updated_at' => now()->micro(6),
+            ],
+            [
+                'naam' => 'ScherderGezin',
+                'code' => 'G0004',
+                'omschrijving' => 'Bijstandsgezin',
+                'aantalVolwassenen' => 1,
+                'aantalKinderen' => 0,
+                'aantalBabys' => 2,
+                'totaalAantalPersonen' => 3,
+                'isActief' => true,
+                'opmerkingen' => null,
+                'created_at' => now()->micro(6),
+                'updated_at' => now()->micro(6),
+            ],
+            [
+                'naam' => 'DeJongGezin',
+                'code' => 'G0005',
+                'omschrijving' => 'Bijstandsgezin',
+                'aantalVolwassenen' => 1,
+                'aantalKinderen' => 1,
+                'aantalBabys' => 0,
+                'totaalAantalPersonen' => 2,
+                'isActief' => true,
+                'opmerkingen' => null,
+                'created_at' => now()->micro(6),
+                'updated_at' => now()->micro(6),
+            ],
+            [
+                'naam' => 'VanderBergGezin',
+                'code' => 'G0006',
+                'omschrijving' => 'AlleenGaande',
+                'aantalVolwassenen' => 1,
+                'aantalKinderen' => 0,
+                'aantalBabys' => 0,
+                'totaalAantalPersonen' => 1,
+                'isActief' => true,
+                'opmerkingen' => null,
+                'created_at' => now()->micro(6),
+                'updated_at' => now()->micro(6),
+            ],
+        ];
 
-        Gezin::create([
-            'naam' => 'ZevenhuizenGezin',
-            'code' => 'G0001',
-            'omschrijving' => 'Bijstandsgezin',
-            'aantalvolwassenen' => 2,
-            'aantalkinderen' => 2,
-            'aantalbabys' => 0,
-            'totaalpersonen' => 4,
-        ]);
-
-        Gezin::create([
-            'naam' => 'BergkampGezin',
-            'code' => 'G0002',
-            'omschrijving' => 'Bijstandsgezin',
-            'aantalvolwassenen' => 2,
-            'aantalkinderen' => 1,
-            'aantalbabys' => 1,
-            'totaalpersonen' => 4,
-        ]);
-
-        Gezin::create([
-            'naam' => 'HeuvelGezin',
-            'code' => 'G0003',
-            'omschrijving' => 'Bijstandsgezin',
-            'aantalvolwassenen' => 2,
-            'aantalkinderen' => 0,
-            'aantalbabys' => 0,
-            'totaalpersonen' => 2,
-        ]);
-
-        Gezin::create([
-            'naam' => 'ScherderGezin',
-            'code' => 'G0004',
-            'omschrijving' => 'Bijstandsgezin',
-            'aantalvolwassenen' => 1,
-            'aantalkinderen' => 0,
-            'aantalbabys' => 2,
-            'totaalpersonen' => 3,
-        ]);
-
-        Gezin::create([
-            'naam' => 'DeJongGezin',
-            'code' => 'G0005',
-            'omschrijving' => 'Bijstandsgezin',
-            'aantalvolwassenen' => 1,
-            'aantalkinderen' => 1,
-            'aantalbabys' => 0,
-            'totaalpersonen' => 2,
-        ]);
-
-        Gezin::create([
-            'naam' => 'VanderBergGezin',
-            'code' => 'G0006',
-            'omschrijving' => 'AlleenGaande',
-            'aantalvolwassenen' => 1,
-            'aantalkinderen' => 0,
-            'aantalbabys' => 0,
-            'totaalpersonen' => 1,
-        ]);
-
-        $this->command->info('Gezin completed');
+        foreach ($data as $item) {
+            Gezin::create($item);
+        }
     }
 }

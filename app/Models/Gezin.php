@@ -11,10 +11,10 @@ class Gezin extends Model
 {
     use HasFactory;
 
-    // The table associated with the model.
+    // Tells Laravel / model to use this name to find the correct table
     protected $table = 'gezin';
 
-    // The attributes that are mass assignable.
+    // Allows these values to be used for creating, editing or deleting
     protected $fillable = [
         'naam',
         'code',
@@ -23,6 +23,10 @@ class Gezin extends Model
         'aantalKinderen',
         'aantalBabys',
         'totaalAantalPersonen',
+        'isActief',
+        'opmerkingen',
+        'created_at',
+        'updated_at',
     ];
 
     public function persoon(): BelongsTo

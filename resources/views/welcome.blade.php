@@ -7,6 +7,8 @@
 
     <title>Laravel</title>
 
+    @vite(['resources/scss/allergie/global.scss'])
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
@@ -14,8 +16,9 @@
 </head>
 
 <body class="antialiased">
-    <h1>Homepage voedselbank maaskantje</h1>
-    <a href="/overzicht">Overzicht voedselpakketten</a>
+    <div class="container">
+        <h1>Homepage voedselbank maaskantje</h1>
+        <a href="/overzicht">Overzicht voedselpakketten</a>
+        <a href="{{route('allergie.overzicht_gezinnen')}}">Overzicht gezinsallergieën</a>
+    </div>
 </body>
-
-</html>
