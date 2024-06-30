@@ -17,6 +17,7 @@ class Contact extends Model
         'straat',
         'huisnummer',
         'toevoeging',
+        'postcode',
         'woonplaats',
         'email',
         'mobiel',

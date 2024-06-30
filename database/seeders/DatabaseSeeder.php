@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Eetwenspergezin;
+
+use App\Models\Leverancier;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,26 +24,17 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             VoedselpakketSeeder::class,
-        ]);
-        $this->call([
             Gezin::class,
-        ]);
-        $this->call([
             Persoon::class,
-        ]);
-        $this->call([
             EetwensSeeder::class,
-        ]);
-        $this->call([
             EetwenspergezinSeeder::class,
-        ]);
-        $this->call([
             ProductpeprvoedselpakketSeeder::class,
-        ]);
-        //Simon seeders
-        $this->call([
-            Contact::class,
             ContactPerGezin::class,
+            LeverancierSeeder::class,
+            ContactSeeder::class,
+            ContactPerLeverancierSeeder::class,
+            ProductSeeder::class,
+            ProductPerLeverancierSeeder::class,
         ]);
     }
 }

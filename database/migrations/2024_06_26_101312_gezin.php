@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('naam')->max(100);
             $table->string('code')->max(10)->unique();
             $table->string('omschrijving')->max(500);
-            $table->integer('aantalvolwassenen')->max(10);
-            $table->integer('aantalkinderen')->max(10);
-            $table->integer('aantalbabys')->max(10);
-            $table->integer('totaalpersonen')->max(10);
+            $table->integer('aantalVolwassenen')->max(10);
+            $table->integer('aantalKinderen')->max(10);
+            $table->integer('aantalBabys')->max(10);
+            $table->integer('totaalAantalPersonen')->max(10);
             $table->rememberToken();
             $table->timestamps();
         });

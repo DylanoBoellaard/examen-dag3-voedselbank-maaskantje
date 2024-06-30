@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('gezin', function (Blueprint $table) {
+        //
+        Schema::create('product', function (Blueprint $table) {
             $table->id();
+            $table->integer('categorieid');
             $table->string('naam');
-            $table->string('code');
+            $table->string('soortallergie');
+            $table->bigInteger('barcode');
+            $table->date('houdbaarheidsdatum');
             $table->string('omschrijving');
-            $table->integer('aantalVolwassenen');
-            $table->integer('aantalKinderen');
-            $table->integer('aantalBabys');
-            $table->integer('totaalAantalPersonen');
+            $table->string('status');
             $table->timestamps();
+            $table->engine('InnoDB');
         });
     }
 
@@ -30,5 +32,6 @@ return new class extends Migration
     public function down(): void
     {
         //
+        Schema::dropIfExists('product');
     }
 };
