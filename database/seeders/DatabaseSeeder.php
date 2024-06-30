@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
 use App\Models\Eetwenspergezin;
 use Illuminate\Database\Seeder;
 
@@ -25,10 +24,10 @@ class DatabaseSeeder extends Seeder
             VoedselpakketSeeder::class,
         ]);
         $this->call([
-            GezinSeeder::class,
+            Gezin::class,
         ]);
         $this->call([
-            PersoonSeeder::class,
+            Persoon::class,
         ]);
         $this->call([
             EetwensSeeder::class,
@@ -38,6 +37,11 @@ class DatabaseSeeder extends Seeder
         ]);
         $this->call([
             ProductpeprvoedselpakketSeeder::class,
+        ]);
+        //Simon seeders
+        $this->call([
+            Contact::class,
+            ContactPerGezin::class,
         ]);
     }
 }

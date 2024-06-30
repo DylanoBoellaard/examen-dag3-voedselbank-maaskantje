@@ -6,25 +6,26 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use App\Models\Gezin;
+use App\Models\Contact;
 
-class Persoon extends Model
+class ContactPerGezin extends Model
 {
     use HasFactory;
 
-    protected $table = 'persoon';
+    protected $table = 'contact_Per_Gezin';
 
     protected $fillable = [
         'gezinId',
-        'voornaam',
-        'tussenvoegsel',
-        'achternaam',
-        'geboortedatum',
-        'typePersoon',
-        'isVertegenwoordiger',
+        'contactId',
     ];
 
     public function hasgezin(): HasOne
     {
-        return $this->hasOne(Gezin::class);
+        return $this->HasOne(Gezin::class);
+    }
+
+    public function hascontact(): HasOne
+    {
+        return $this->HasOne(Contact::class);
     }
 }

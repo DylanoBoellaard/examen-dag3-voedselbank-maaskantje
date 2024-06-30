@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\Persoon;
 
 class Gezin extends Model
 {
@@ -17,11 +19,20 @@ class Gezin extends Model
         'naam',
         'code',
         'omschrijving',
-        'aantalvolwassenen',
-        'aantalkinderen',
-        'aantalbabys',
-        'totaalpersonen',
+        'aantalVolwassenen',
+        'aantalKinderen',
+        'aantalBabys',
+        'totaalAantalPersonen',
     ];
+
+    public function persoon(): BelongsTo
+    {
+        return $this->belongsTo(Persoon::class);
+    }
+    public function contactPerGezin(): BelongsTo
+    {
+        return $this->belongsTo(ContactPerGezin::class);
+    }
 
     // Get the personen for the gezin.
     public function personen()
