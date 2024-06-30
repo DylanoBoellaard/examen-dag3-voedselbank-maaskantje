@@ -23,22 +23,22 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            VoedselpakketSeeder::class,
+            LeverancierSeeder::class,
+            CategorieSeeder::class,
+            MagazijnSeeder::class,
             GezinSeeder::class,
-            PersoonSeeder::class,
+            AllergieSeeder::class,
+            ContactSeeder::class,
             EetwensSeeder::class,
+            VoedselpakketSeeder::class,
+            PersoonSeeder::class,
             EetwenspergezinSeeder::class,
             ProductpeprvoedselpakketSeeder::class,
             ContactPerGezin::class,
-            LeverancierSeeder::class,
-            ContactSeeder::class,
             ContactPerLeverancierSeeder::class,
             ProductSeeder::class,
             ProductPerLeverancierSeeder::class,
-            MagazijnSeeder::class,
-            CategorieSeeder::class,
             ProductPerMagazijnSeeder::class,
-            AllergieSeeder::class,
             AllergiePerPersoonSeeder::class
         ]);
     }

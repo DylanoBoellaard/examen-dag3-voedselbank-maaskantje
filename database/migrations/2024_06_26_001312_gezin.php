@@ -21,6 +21,8 @@ return new class extends Migration
             $table->integer('aantalKinderen')->max(10);
             $table->integer('aantalBabys')->max(10);
             $table->integer('totaalAantalPersonen')->max(10);
+            $table->boolean('isActief')->default(true);
+            $table->string('opmerkingen', 250)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

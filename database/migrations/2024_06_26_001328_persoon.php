@@ -21,6 +21,8 @@ return new class extends Migration
             $table->date('geboortedatum')->max(20);
             $table->string('typePersoon')->max(20);
             $table->boolean('isVertegenwoordiger')->max(2)->default(0);
+            $table->boolean('isActief')->default(true);
+            $table->string('opmerkingen', 250)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
