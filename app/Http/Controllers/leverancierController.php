@@ -67,13 +67,13 @@ class leverancierController extends Controller
             'leverancier.leveranciernummer',
             'leverancier.leveranciertype',
             'product.id as product_id',
-            'product.naam as product_naam',
-            'product.soortallergie',
-            'product.barcode',
-            'product.houdbaarheidsdatum',
+            'product.Naam as product_naam',
+            'product.SoortAllergie',
+            'product.Barcode',
+            'product.Houdbaarheidsdatum',
         )
             ->join('leverancier', 'productperleverancier.leverancierid', '=', 'leverancier.id') // Adjust the foreign key and table name as necessary
-            ->join('product', 'productperleverancier.productid', '=', 'product.id') // Adjust the foreign key and table name as necessary
+            ->join('Product', 'productperleverancier.productid', '=', 'product.id') // Adjust the foreign key and table name as necessary
             ->where('leverancier.id', $id)
             ->get();
         //dd($producten);

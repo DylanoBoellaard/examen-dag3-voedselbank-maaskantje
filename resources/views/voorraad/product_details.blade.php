@@ -65,6 +65,6 @@
     </span>
     <span>
         <a href="{{route('overzicht')}}">terug</a>
-        <a href="{{route('homepage')}}">home</a>
+        <a href="{{route('home')}}">home</a>
     </span>
 </section>

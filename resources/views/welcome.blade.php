@@ -18,7 +18,10 @@
 <body class="antialiased">
     <div class="container">
         <h1>Homepage voedselbank maaskantje</h1>
-        <a href="/overzicht">Overzicht voedselpakketten</a>
+        <a href="/voedselpakket/overzicht">Overzicht voedselpakketten</a>
         <a href="{{route('allergie.overzicht_gezinnen')}}">Overzicht gezinsallergieën</a>
+        <a href="klanten/overzicht"><u>Overzicht klanten</u></a>
+        <a href="{{route('overzicht')}}">Overzicht Productvoorraden</a>
+        <a href="/leverancier">Overzicht Leverancier</a>
     </div>
 </body>

@@ -41,7 +41,7 @@ class Gezin extends Model
     // Get the personen for the gezin.
     public function personen()
     {
-        return $this->hasMany(Persoon::class, 'gezin_id', 'id');
+        return $this->hasMany(Persoon::class, 'gezinId', 'id');
     }
 
     // Get the eetwenspergezin for the gezin.

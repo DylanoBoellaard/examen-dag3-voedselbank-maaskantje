@@ -77,6 +77,6 @@ class VoedselpakketOverzichtController extends Controller
         ]);
 
         // returns the view with the updated voedselpakket
-        return redirect('/gezin/' . $voedselpakket->id . '/edit')->with('status', 'De wijziging is doorgevoerd');
+        return redirect('/voedselpakket/gezin/' . $voedselpakket->id . '/edit')->with('status', 'De wijziging is doorgevoerd');
     }
 }

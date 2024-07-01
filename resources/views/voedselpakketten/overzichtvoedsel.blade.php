@@ -47,13 +47,13 @@
                 @endif
                 <td>{{ $pakket->status }}</td>
                 <td>{{ $pakket->voedselpakketpereenheid->sum('aantalproducteneenheden') }}</td>
-                <td><a href="/gezin/{{ $pakket->id }}/edit">Wijzig</a></td>
+                <td><a href="/voedselpakket/gezin/{{ $pakket->id }}/edit">Wijzig</a></td>
             </tr>
             @endforeach
         </table>
 
         <div>
-            <a href="/overzicht"><button>terug</button></a>
+            <a href="/voedselpakket/overzicht"><button>terug</button></a>
             <a href="/"><button>home</button></a>
         </div>
     </main>

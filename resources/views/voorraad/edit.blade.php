@@ -70,6 +70,6 @@
 <section class="links-edit">
     <!-- these links go to the details page and the homepage -->
     <a href="{{route('product_details', [$data[0]->id])}}">terug</a>
-    <a href="{{route('homepage')}}">home</a>
+    <a href="{{route('home')}}">home</a>
 </section>
 </div>

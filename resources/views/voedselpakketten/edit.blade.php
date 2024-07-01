@@ -18,7 +18,7 @@
         </ul>
         @endif
 
-        <form action="/gezin/{{ $voedselpakket->id }}" method="post">
+        <form action="/voedselpakket/gezin/{{ $voedselpakket->id }}" method="post">
             @csrf
             @method('put')
             <h3>Wijzig voedselpakket status</h3>
@@ -43,7 +43,7 @@
             </div>
         </form>
         <div>
-            <a href="/gezin/{{ $voedselpakket->gezinId }}"><button class="blue">terug</button></a>
+            <a href="/voedselpakket/gezin/{{ $voedselpakket->gezinId }}"><button class="blue">terug</button></a>
             <a href="/"><button class="blue">home</button></a>
         </div>
     </main>

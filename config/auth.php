@@ -114,8 +114,6 @@ return [
 
 ];
 
-<?php
-
 return [
 
     /*

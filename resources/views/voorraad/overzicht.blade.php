@@ -79,5 +79,5 @@
 
 <!-- link back to the homepage -->
 <section class="links-overzicht">
-    <a href="{{route('homepage')}}">home</a>
+    <a href="{{route('home')}}">home</a>
 </section>

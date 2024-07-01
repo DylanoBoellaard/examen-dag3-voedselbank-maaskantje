@@ -32,9 +32,9 @@
         @foreach($producten as $product)
         <tr>
             <td>{{ $product->product_naam}}</td>
-            <td>{{ $product->soortallergie}}</td>
-            <td>{{ $product->barcode}}</td>
-            <td>{{ $product->houdbaarheidsdatum}}</td>
+            <td>{{ $product->SoortAllergie}}</td>
+            <td>{{ $product->Barcode}}</td>
+            <td>{{ $product->Houdbaarheidsdatum}}</td>
             <td>
                 <a href="{{ route('leverancier.wijzigen', ['id' => $product->product_id]) }}">Wijzigen</a>
             </td>
